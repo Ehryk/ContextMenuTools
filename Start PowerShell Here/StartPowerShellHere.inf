@@ -1,0 +1,61 @@
+[version]
+Signature="$Windows NT$"
+
+[StartPowerShellHereInstall]
+CopyFiles = StartPowerShellHere.Files.Inf
+CopyFiles = StartPowerShellHere.Files.Icon
+AddReg    = StartPowerShellHere.AddReg
+
+[DefaultInstall]
+CopyFiles = StartPowerShellHere.Files.Inf
+CopyFiles = StartPowerShellHere.Files.Icon
+AddReg    = StartPowerShellHere.AddReg
+
+[DefaultUnInstall]
+DelFiles  = StartPowerShellHere.Files.Inf
+DelReg    = StartPowerShellHere.DelReg
+
+[SourceDisksNames]
+55="PowerShell Prompt Here","",1
+
+[SourceDisksFiles]
+StartPowerShellHere.INF=55
+PowerShell.ico=55
+
+[DestinationDirs]
+StartPowerShellHere.Files.Inf = 17
+StartPowerShellHere.Files.Icon = 11
+
+[StartPowerShellHere.Files.Inf]
+StartPowerShellHere.INF
+
+[StartPowerShellHere.Files.Icon]
+PowerShell.ico
+
+[StartPowerShellHere.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\PowerShell.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\StartPowerShellHere.inf"
+
+HKCR,Directory\Shell\StartPowerShellHere,,,"%ContextText%"
+HKCR,Directory\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
+HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%ContextText%"
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit "
+HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
+HKCR,Drive\Shell\StartPowerShellHere,,,"%ContextText%"
+HKCR,Drive\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
+
+[StartPowerShellHere.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\StartPowerShellHere
+HKCR,Directory\Background\Shell\StartPowerShellHere
+HKCR,Drive\Shell\StartPowerShellHere
+
+[Strings]
+DisplayName="Start PowerShell Here (Uninstall only)"
+DisplayVersion="1.0"
+ContextText="Start &PowerShell Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHere"

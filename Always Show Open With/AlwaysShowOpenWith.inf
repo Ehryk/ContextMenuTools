@@ -1,0 +1,44 @@
+[version]
+Signature="$Windows NT$"
+
+[AlwaysShowOpenWithInstall]
+CopyFiles = AlwaysShowOpenWith.Files.Inf
+AddReg    = AlwaysShowOpenWith.AddReg
+
+[DefaultInstall]
+CopyFiles = AlwaysShowOpenWith.Files.Inf
+AddReg    = AlwaysShowOpenWith.AddReg
+
+[DefaultUnInstall]
+DelFiles  = AlwaysShowOpenWith.Files.Inf
+DelReg    = AlwaysShowOpenWith.DelReg
+
+[SourceDisksNames]
+55="Always Show Open With","",1
+
+[SourceDisksFiles]
+AlwaysShowOpenWith.INF=55
+
+[DestinationDirs]
+AlwaysShowOpenWith.Files.Inf = 17
+
+[AlwaysShowOpenWith.Files.Inf]
+AlwaysShowOpenWith.INF
+
+[AlwaysShowOpenWith.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\AlwaysShowOpenWith.inf"
+
+HKCR,*\Shell\AlwaysShowOpenWith,,,"%ContextText%"
+HKCR,*\Shell\AlwaysShowOpenWith\command,,,"C:\Windows\rundll32.exe shell32.dll,OpenAs_RunDLL %1"
+
+[AlwaysShowOpenWith.DelReg]
+HKLM,%UDHERE%
+HKCR,*\Shell\AlwaysShowOpenWith
+
+[Strings]
+DisplayName="Always Show Open With (Uninstall only)"
+DisplayVersion="1.0"
+ContextText="Op&en With..."
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\AlwaysShowOpenWith"

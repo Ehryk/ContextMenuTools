@@ -1,0 +1,61 @@
+[version]
+Signature="$Windows NT$"
+
+[CommandPromptHereInstall]
+CopyFiles = CommandPromptHere.Files.Inf
+CopyFiles = CommandPromptHere.Files.Icon
+AddReg    = CommandPromptHere.AddReg
+
+[DefaultInstall]
+CopyFiles = CommandPromptHere.Files.Inf
+CopyFiles = CommandPromptHere.Files.Icon
+AddReg    = CommandPromptHere.AddReg
+
+[DefaultUnInstall]
+DelFiles  = CommandPromptHere.Files.Inf
+DelReg    = CommandPromptHere.DelReg
+
+[SourceDisksNames]
+55="Command Prompt Here","",1
+
+[SourceDisksFiles]
+CommandPromptHere.INF=55
+cmd.ico=55
+
+[DestinationDirs]
+CommandPromptHere.Files.Inf = 17
+CommandPromptHere.Files.Icon = 11
+
+[CommandPromptHere.Files.Inf]
+CommandPromptHere.INF
+
+[CommandPromptHere.Files.Icon]
+cmd.ico
+
+[CommandPromptHere.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\cmd48.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHere.inf"
+
+HKCR,Directory\Shell\CommandPromptHere,,,"%ContextText%"
+HKCR,Directory\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" ""%1"""
+HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Background\Shell\CommandPromptHere,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"""
+HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Drive\Shell\CommandPromptHere,,,"%ContextText%"
+HKCR,Drive\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" ""%1"""
+HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+
+[CommandPromptHere.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\CommandPromptHere
+HKCR,Directory\Background\Shell\CommandPromptHere
+HKCR,Drive\Shell\CommandPromptHere
+
+[Strings]
+DisplayName="Command Prompt Here (Uninstall only)"
+DisplayVersion="1.0"
+ContextText="&Command Prompt Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHere"
