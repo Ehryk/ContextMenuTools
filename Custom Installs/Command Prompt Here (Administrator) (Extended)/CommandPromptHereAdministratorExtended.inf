@@ -1,0 +1,100 @@
+[version]
+Signature="$Windows NT$"
+
+[CommandPromptHereAdministratorExtendedInstall]
+CopyFiles = CommandPromptHereAdministratorExtended.Files.Inf
+CopyFiles = CommandPromptHereAdministratorExtended.Files.System
+CopyFiles = CommandPromptHereAdministratorExtended.Files.Icon
+AddReg    = CommandPromptHereAdministratorExtended.AddReg
+DelReg    = cmd.DelReg
+
+[DefaultInstall]
+CopyFiles = CommandPromptHereAdministratorExtended.Files.Inf
+CopyFiles = CommandPromptHereAdministratorExtended.Files.System
+CopyFiles = CommandPromptHereAdministratorExtended.Files.Icon
+AddReg    = CommandPromptHereAdministratorExtended.AddReg
+DelReg    = cmd.DelReg
+
+[DefaultUnInstall]
+DelFiles  = CommandPromptHereAdministratorExtended.Files.Inf
+DelReg    = CommandPromptHereAdministratorExtended.DelReg
+AddReg    = cmd.AddReg
+
+[SourceDisksNames]
+55="Command Prompt Here (Extended) (Administrator)","",1
+
+[SourceDisksFiles]
+CommandPromptHereAdministratorExtended.INF=55
+cmdAdmin.ico=55
+
+[DestinationDirs]
+CommandPromptHereAdministratorExtended.Files.Inf    = 17
+CommandPromptHereAdministratorExtended.Files.System = 11
+CommandPromptHereAdministratorExtended.Files.Icon   = 11
+
+[CommandPromptHereAdministratorExtended.Files.Inf]
+CommandPromptHereAdministratorExtended.INF
+
+[CommandPromptHereAdministratorExtended.Files.System]
+Elevate.cmd
+Elevate.vbs
+
+[CommandPromptHereAdministratorExtended.Files.Icon]
+cmdAdmin.ico
+
+[CommandPromptHereAdministratorExtended.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\cmdAdmin.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereAdministratorExtended.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Extended,,""
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Extended,,""
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER """
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Extended,,""
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+
+[CommandPromptHereAdministratorExtended.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
+
+[cmd.AddReg]
+HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Shell\cmd,Extended,,""
+HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Background\Shell\cmd,Extended,,""
+HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Drive\Shell\cmd,Extended,,""
+HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+[cmd.DelReg]
+HKCR,Directory\Shell\cmd
+HKCR,Directory\Background\Shell\cmd
+HKCR,Drive\Shell\cmd
+
+[Strings]
+DisplayName="Context Menu: Command Prompt Here (Administrator) (Extended)"
+DisplayVersion="1.0"
+ContextText="&Command Prompt Here (Administrator)"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereAdministratorExtended"

@@ -1,0 +1,93 @@
+[version]
+Signature="$Windows NT$"
+
+[CommandPromptHereExtendedInstall]
+CopyFiles = CommandPromptHereExtended.Files.Inf
+CopyFiles = CommandPromptHereExtended.Files.Icon
+AddReg    = CommandPromptHereExtended.AddReg
+DelReg    = cmd.DelReg
+
+[DefaultInstall]
+CopyFiles = CommandPromptHereExtended.Files.Inf
+CopyFiles = CommandPromptHereExtended.Files.Icon
+AddReg    = CommandPromptHereExtended.AddReg
+DelReg    = cmd.DelReg
+
+[DefaultUnInstall]
+DelFiles  = CommandPromptHereExtended.Files.Inf
+DelReg    = CommandPromptHereExtended.DelReg
+AddReg    = cmd.AddReg
+
+[SourceDisksNames]
+55="Command Prompt Here (Extended)","",1
+
+[SourceDisksFiles]
+CommandPromptHere.INF=55
+cmd.ico=55
+
+[DestinationDirs]
+CommandPromptHereExtended.Files.Inf = 17
+CommandPromptHereExtended.Files.Icon = 11
+
+[CommandPromptHereExtended.Files.Inf]
+CommandPromptHereExtended.INF
+
+[CommandPromptHereExtended.Files.Icon]
+cmd.ico
+
+[CommandPromptHereExtended.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\cmd.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereExtended.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\CommandPromptHere,,,"%ContextText%"
+HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Shell\CommandPromptHere,Extended,,""
+HKCR,Directory\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\CommandPromptHere,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Background\Shell\CommandPromptHere,Extended,,""
+HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""COLOR 04 && VER """
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\CommandPromptHere,,,"%ContextText%"
+HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Drive\Shell\CommandPromptHere,Extended,,""
+HKCR,Drive\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+
+[CommandPromptHereExtended.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\CommandPromptHere
+HKCR,Directory\Background\Shell\CommandPromptHere
+HKCR,Drive\Shell\CommandPromptHere
+
+[cmd.AddReg]
+HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Shell\cmd,Extended,,""
+HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Background\Shell\cmd,Extended,,""
+HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Drive\Shell\cmd,Extended,,""
+HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+[cmd.DelReg]
+HKCR,Directory\Shell\cmd
+HKCR,Directory\Background\Shell\cmd
+HKCR,Drive\Shell\cmd
+
+[Strings]
+DisplayName="Context Menu: Command Prompt Here (Extended)"
+DisplayVersion="1.0"
+ContextText="&Command Prompt Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereExtended"

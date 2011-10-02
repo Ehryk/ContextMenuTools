@@ -1,0 +1,66 @@
+[version]
+Signature="$Windows NT$"
+
+[GitBashHereInstall]
+CopyFiles = GitBashHere.Files.Inf
+CopyFiles = GitBashHere.Files.Icon
+AddReg    = GitBashHere.AddReg
+
+[DefaultInstall]
+CopyFiles = GitBashHere.Files.Inf
+CopyFiles = GitBashHere.Files.Icon
+AddReg    = GitBashHere.AddReg
+
+[DefaultUnInstall]
+DelFiles  = GitBashHere.Files.Inf
+DelReg    = GitBashHere.DelReg
+
+[SourceDisksNames]
+55="Git Bash Here","",1
+
+[SourceDisksFiles]
+GitBashHere.INF=55
+Git.ico=55
+
+[DestinationDirs]
+GitBashHere.Files.Inf = 17
+GitBashHere.Files.Icon = 11
+
+[GitBashHere.Files.Inf]
+GitBashHere.INF
+
+[GitBashHere.Files.Icon]
+Git.ico
+
+[GitBashHere.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\Git.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\GitBashHere.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\Git_Shell,,,"%ContextText%"
+HKCR,Directory\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%1"""
+HKCR,Directory\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\Git_Shell,,,"%ContextText%"
+HKCR,Directory\Background\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files\Git\Git Bash.vbs"""
+HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\Git_Shell,,,"%ContextText%"
+HKCR,Drive\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%1"""
+HKCR,Drive\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+[GitBashHere.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\Git_Shell
+HKCR,Directory\Background\Shell\Git_Shell
+HKCR,Drive\Shell\Git_Shell
+
+[Strings]
+DisplayName="Context Menu: Git Bash Here"
+DisplayVersion="1.0"
+ContextText="&Git Bash Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\GitBashHere"

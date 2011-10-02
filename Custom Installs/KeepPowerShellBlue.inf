@@ -1,0 +1,72 @@
+[version]
+Signature="$Windows NT$"
+
+[KeepPowerShellBlueInstall]
+CopyFiles = KeepPowerShellBlue.Files.Inf
+AddReg    = KeepPowerShellBlue.AddReg
+
+[DefaultInstall]
+CopyFiles = KeepPowerShellBlue.Files.Inf
+AddReg    = KeepPowerShellBlue.AddReg
+
+[DefaultUnInstall]
+DelReg    = KeepPowerShellBlue.DelReg
+
+[SourceDisksNames]
+55 = "Keep PowerShell Blue","",1
+
+[SourceDisksFiles]
+KeepPowerShellBlue.INF = 55
+
+[DestinationDirs]
+KeepPowerShellBlue.Files.Inf    = 17
+
+[KeepPowerShellBlue.Files.Inf]
+KeepPowerShellBlue.INF
+
+[KeepPowerShellBlue.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\KeepPowerShellBlue.inf"
+
+;Make PowerShell keep default blue when opened from .exe
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,,,
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ScreenColors,0x00010001,0x00000056
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,PopupColors,0x00010001,0x000000f3
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable00,0x00010001,0x00562401
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable01,0x00010001,0x00800000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable02,0x00010001,0x00008000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable03,0x00010001,0x00808000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable04,0x00010001,0x00000080
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable05,0x00010001,0x00562401
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable06,0x00010001,0x00f0edee
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable07,0x00010001,0x00c0c0c0
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable08,0x00010001,0x00808080
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable09,0x00010001,0x00ff0000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable10,0x00010001,0x0000ff00
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable11,0x00010001,0x00ffff00
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable12,0x00010001,0x000000ff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable13,0x00010001,0x00ff00ff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable14,0x00010001,0x0000ffff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable15,0x00010001,0x00ffffff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,InsertMode,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,QuickEdit,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ScreenBufferSize,0x00010001,0x0bb80064
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,WindowSize,0x00010001,0x00280064
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FontSize,0x00010001,0x000c0008
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FontFamily,0x00010001,0x00000030
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FontWeight,0x00010001,0x00000190
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FaceName,,"Terminal"
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,CursorSize,0x00010001,0x00000019
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,HistoryBufferSize,0x00010001,0x00000032
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,NumberOfHistoryBuffers,0x00010001,0x00000004
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,HistoryNoDup,0x00010001,0x00000000
+
+[KeepPowerShellBlue.DelReg]
+HKLM,%UDHERE%
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
+
+[Strings]
+DisplayName="Keep PowerShell Blue"
+DisplayVersion="1.0"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\KeepPowerShellBlue"

@@ -1,0 +1,69 @@
+[version]
+Signature="$Windows NT$"
+
+[StartPowerShellHereExtendedInstall]
+CopyFiles = StartPowerShellHereExtended.Files.Inf
+CopyFiles = StartPowerShellHereExtended.Files.Icon
+AddReg    = StartPowerShellHereExtended.AddReg
+
+[DefaultInstall]
+CopyFiles = StartPowerShellHereExtended.Files.Inf
+CopyFiles = StartPowerShellHereExtended.Files.Icon
+AddReg    = StartPowerShellHereExtended.AddReg
+
+[DefaultUnInstall]
+DelFiles  = StartPowerShellHereExtended.Files.Inf
+DelReg    = StartPowerShellHereExtended.DelReg
+
+[SourceDisksNames]
+55="PowerShell Prompt Here","",1
+
+[SourceDisksFiles]
+StartPowerShellHereExtended.INF=55
+PowerShell.ico=55
+
+[DestinationDirs]
+StartPowerShellHereExtended.Files.Inf = 17
+StartPowerShellHereExtended.Files.Icon = 11
+
+[StartPowerShellHereExtended.Files.Inf]
+StartPowerShellHereExtended.INF
+
+[StartPowerShellHereExtended.Files.Icon]
+PowerShell.ico
+
+[StartPowerShellHereExtended.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\PowerShell.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\StartPowerShellHereExtended.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\StartPowerShellHereExtended,,,"%ContextText%"
+HKCR,Directory\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Directory\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico"
+HKCR,Directory\Shell\StartPowerShellHereExtended,Extended,,""
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended,,,"%ContextText%"
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit "
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended,Extended,,""
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\StartPowerShellHereExtended,,,"%ContextText%"
+HKCR,Drive\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Drive\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico"
+HKCR,Drive\Shell\StartPowerShellHereExtended,Extended,,""
+
+[StartPowerShellHereExtended.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\StartPowerShellHereExtended
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended
+HKCR,Drive\Shell\StartPowerShellHereExtended
+
+[Strings]
+DisplayName="Context Menu: Start PowerShell Here (Extended)"
+DisplayVersion="1.0"
+ContextText="Start &PowerShell Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHereExtended"

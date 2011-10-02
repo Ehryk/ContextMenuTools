@@ -1,0 +1,197 @@
+[version]
+Signature="$Windows NT$"
+
+[ContextMenuToolsInstall]
+CopyFiles = ContextMenuTools.Files.Inf
+CopyFiles = ContextMenuTools.Files.System
+CopyFiles = ContextMenuTools.Files.Icon
+AddReg    = ContextMenuTools.AddReg
+DelReg    = cmd.DelReg
+
+[DefaultInstall]
+CopyFiles = ContextMenuTools.Files.Inf
+CopyFiles = ContextMenuTools.Files.System
+CopyFiles = ContextMenuTools.Files.Icon
+AddReg    = ContextMenuTools.AddReg
+DelReg    = cmd.DelReg
+
+[DefaultUnInstall]
+DelFiles  = ContextMenuTools.Files.Inf
+DelReg    = ContextMenuTools.DelReg
+AddReg    = cmd.AddReg
+
+[SourceDisksNames]
+55 = "Context Menu Tools","",1
+
+[SourceDisksFiles]
+ContextMenuTools.INF = 55
+cmd.ico              = 55
+cmdAdmin.ico         = 55
+PowerShell.ico       = 55
+PowerShellAdmin.ico  = 55
+Git.ico              = 55
+
+[DestinationDirs]
+ContextMenuTools.Files.Inf    = 17
+ContextMenuTools.Files.System = 11
+ContextMenuTools.Files.Icon   = 11
+
+[ContextMenuTools.Files.Inf]
+ContextMenuTools.INF
+
+[ContextMenuTools.Files.System]
+Elevate.cmd
+Elevate.vbs
+
+[ContextMenuTools.Files.Icon]
+cmd.ico
+cmdAdmin.ico
+PowerShell.ico
+PowerShellAdmin.ico
+Git.ico
+
+[ContextMenuTools.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\PowerShellAdmin.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\ContextMenuTools.inf"
+
+;Adds entries when right-clicking a Directory
+HKCR,Directory\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
+HKCR,Directory\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
+
+HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended,,,"%PowerShellAdminContextText%"
+HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle"
+HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
+HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended,Extended,,""
+
+HKCR,Directory\Shell\Git_Shell,,,"%GitContextText%"
+HKCR,Directory\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+HKCR,Directory\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,,,"%cmdContextText%"
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Extended,,""
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+
+;Adds entries when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit "
+HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
+
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended,,,"%PowerShellAdminContextText%"
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit ; $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle"
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended,Extended,,""
+
+HKCR,Directory\Background\Shell\Git_Shell,,,"%GitContextText%"
+HKCR,Directory\Background\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"""
+HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,,,"%cmdContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Extended,,""
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER"""
+
+;Adds entries when right-clicking a Drive
+HKCR,Drive\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
+HKCR,Drive\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
+
+HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended,,,"%PowerShellAdminContextText%"
+HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle"
+HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
+HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended,Extended,,""
+
+HKCR,Drive\Shell\Git_Shell,,,"%GitContextText%"
+HKCR,Drive\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+HKCR,Drive\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,,,"%cmdContextText%"
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Extended,,""
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+
+;Make PowerShell keep default blue when opened from .exe
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,,,
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ScreenColors,0x00010001,0x00000056
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,PopupColors,0x00010001,0x000000f3
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable00,0x00010001,0x00562401
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable01,0x00010001,0x00800000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable02,0x00010001,0x00008000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable03,0x00010001,0x00808000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable04,0x00010001,0x00000080
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable05,0x00010001,0x00562401
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable06,0x00010001,0x00f0edee
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable07,0x00010001,0x00c0c0c0
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable08,0x00010001,0x00808080
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable09,0x00010001,0x00ff0000
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable10,0x00010001,0x0000ff00
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable11,0x00010001,0x00ffff00
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable12,0x00010001,0x000000ff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable13,0x00010001,0x00ff00ff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable14,0x00010001,0x0000ffff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ColorTable15,0x00010001,0x00ffffff
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,InsertMode,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,QuickEdit,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,ScreenBufferSize,0x00010001,0x0bb80064
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,WindowSize,0x00010001,0x00280064
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FontSize,0x00010001,0x000c0008
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FontFamily,0x00010001,0x00000030
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FontWeight,0x00010001,0x00000190
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,FaceName,,"Terminal"
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,CursorSize,0x00010001,0x00000019
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,HistoryBufferSize,0x00010001,0x00000032
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,NumberOfHistoryBuffers,0x00010001,0x00000004
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,HistoryNoDup,0x00010001,0x00000000
+
+[ContextMenuTools.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\StartPowerShellHere
+HKCR,Directory\Background\Shell\StartPowerShellHere
+HKCR,Drive\Shell\StartPowerShellHere
+
+HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended
+HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended
+
+HKCR,Directory\Shell\Git_Shell
+HKCR,Directory\Background\Shell\Git_Shell
+HKCR,Drive\Shell\Git_Shell
+
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
+
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
+
+[cmd.AddReg]
+HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Shell\cmd,Extended,,""
+HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Background\Shell\cmd,Extended,,""
+HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Drive\Shell\cmd,Extended,,""
+HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+[cmd.DelReg]
+HKCR,Directory\Shell\cmd
+HKCR,Directory\Background\Shell\cmd
+HKCR,Drive\Shell\cmd
+
+[Strings]
+DisplayName="Context Menu Tools"
+DisplayVersion="1.0"
+cmdContextText="&Command Prompt Here (Administrator)"
+PowerShellContextText="Start &PowerShell Here"
+PowerShellAdminContextText="Start &PowerShell Here (Administrator)"
+GitContextText="&Git Bash Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\ContextMenuTools"
