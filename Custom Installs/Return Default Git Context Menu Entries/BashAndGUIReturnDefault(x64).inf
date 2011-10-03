@@ -1,0 +1,37 @@
+[version]
+Signature="$Windows NT$"
+
+[ReturnDefaultInstall]
+AddReg = ReturnDefault.AddReg
+
+[DefaultInstall]
+AddReg = ReturnDefault.AddReg
+
+[DefaultUnInstall]
+
+[SourceDisksNames]
+55="Return Default(x86)","",1
+
+[SourceDisksFiles]
+ReturnDefault.INF=55
+
+[DestinationDirs]
+
+[ReturnDefault.Files.Inf]
+ReturnDefault.INF
+
+[ReturnDefault.Files.Icon]
+
+[ReturnDefault.AddReg]
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\git_shell,,,"%BashContextText%"
+HKCR,Directory\Shell\git_shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+
+HKCR,Directory\Shell\git_shell,,,"%GUIContextText%"
+HKCR,Directory\Shell\git_shell\command,,,"wscript ""%24%\Program Files\Git\libexec\git-core\git-gui"" ""-working-dir"" ""%1"""
+
+[ReturnDefault.DelReg]
+
+[Strings]
+BashContextText="Git Ba&sh Here"
+GUIContextText="Git &GUI Here"
