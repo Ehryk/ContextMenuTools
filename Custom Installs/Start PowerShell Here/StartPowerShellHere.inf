@@ -40,17 +40,17 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\StartPowerShellHere,,,"%ContextText%"
-HKCR,Directory\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Directory\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%ContextText%"
-HKCR,Directory\Background\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit "
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\StartPowerShellHere,,,"%ContextText%"
-HKCR,Drive\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Drive\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
 
 [StartPowerShellHere.DelReg]

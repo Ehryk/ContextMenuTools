@@ -51,17 +51,17 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
 HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER """
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER """
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
 HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 04 && VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 [CommandPromptHereAdministrator.DelReg]
 HKLM,%UDHERE%

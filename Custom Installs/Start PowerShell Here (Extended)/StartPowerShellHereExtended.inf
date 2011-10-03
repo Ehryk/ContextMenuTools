@@ -40,19 +40,19 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\StartPowerShellHereExtended,,,"%ContextText%"
-HKCR,Directory\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Directory\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Directory\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico"
 HKCR,Directory\Shell\StartPowerShellHereExtended,Extended,,""
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\StartPowerShellHereExtended,,,"%ContextText%"
-HKCR,Directory\Background\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit "
-HKCR,Directory\Background\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico"
 HKCR,Directory\Background\Shell\StartPowerShellHereExtended,Extended,,""
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\StartPowerShellHereExtended,,,"%ContextText%"
-HKCR,Drive\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command Set-Location -LiteralPath '%L'"
+HKCR,Drive\Shell\StartPowerShellHereExtended\command,,,"""%11%\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Drive\Shell\StartPowerShellHereExtended,Icon,0x00020000,"%11%\PowerShell.ico"
 HKCR,Drive\Shell\StartPowerShellHereExtended,Extended,,""
 
