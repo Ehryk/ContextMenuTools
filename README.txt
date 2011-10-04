@@ -1,13 +1,14 @@
                               /##########################\
                               |### Context Menu Tools ###|
                               \##########################/
+
                                      Version: 1.0
                                   Author: Eric Menze
                                Windows 7, Windows Vista
 
 These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have been tested in Windows 7 and Vista (although you may need to install PowerShell manually).
 
-If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other popular tools that would be helpful to add to the in the context menu.
+If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other commands that would be helpful in the context menu.
 
                                    ===================
                                    ===> The Story <===
@@ -16,6 +17,7 @@ If you have any bugs to report or features to request, please do so either at Gi
 After using PowerShell and Git Bash a lot, I found it irritating to start in my home directory each time I opened a new prompt.  Microsoft published their Elevation Power Toys, which would launch PowerShell and the command prompt from the context menus of drives and directories, but I found it lacking in a few features.  What I wanted most was to right click the backgrounds of directories and drives, Git support, and other nitpicky details.  This gave birth to this project.
 
 I used the basic structure of the .INF files to write my own, with custom icons and more features.  I alter the Administrator prompts to reflect the elevated commands, customize the PowerShell prompts, set default colors, and most importantly add the ability to right click anywhere in a directory or drive.
+
                                   ====================
                                   ===> PowerShell <===
                                   ====================
