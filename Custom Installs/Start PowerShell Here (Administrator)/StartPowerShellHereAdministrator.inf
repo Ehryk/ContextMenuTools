@@ -5,12 +5,16 @@ Signature="$Windows NT$"
 CopyFiles = StartPowerShellHereAdministrator.Files.Inf
 CopyFiles = StartPowerShellHereAdministrator.Files.System
 CopyFiles = StartPowerShellHereAdministrator.Files.Icon
+DelFiles  = StartPowerShellHereAdministratorExtended.Files.Clean
+DelReg    = StartPowerShellHereAdministratorExtended.Clean
 AddReg    = StartPowerShellHereAdministrator.AddReg
 
 [DefaultInstall]
 CopyFiles = StartPowerShellHereAdministrator.Files.Inf
 CopyFiles = StartPowerShellHereAdministrator.Files.System
 CopyFiles = StartPowerShellHereAdministrator.Files.Icon
+DelFiles  = StartPowerShellHereAdministratorExtended.Files.Clean
+DelReg    = StartPowerShellHereAdministratorExtended.Clean
 AddReg    = StartPowerShellHereAdministrator.AddReg
 
 [DefaultUnInstall]
@@ -25,9 +29,10 @@ StartPowerShellHereAdministrator.INF=55
 PowerShellAdmin.ico=55
 
 [DestinationDirs]
-StartPowerShellHereAdministrator.Files.Inf    = 17
-StartPowerShellHereAdministrator.Files.System = 11
-StartPowerShellHereAdministrator.Files.Icon   = 11
+StartPowerShellHereAdministrator.Files.Inf           = 17
+StartPowerShellHereAdministratorExtended.Files.Clean = 17
+StartPowerShellHereAdministrator.Files.System        = 11
+StartPowerShellHereAdministrator.Files.Icon          = 11
 
 [StartPowerShellHereAdministrator.Files.Inf]
 StartPowerShellHereAdministrator.INF
@@ -38,6 +43,15 @@ Elevate.vbs
 
 [StartPowerShellHereAdministrator.Files.Icon]
 PowerShellAdmin.ico
+
+[StartPowerShellHereAdministratorExtended.Files.Clean]
+StartPowerShellHereAdministratorExtended.inf
+
+[StartPowerShellHereAdministratorExtended.Clean]
+HKLM,%UDHERE%Extended
+HKCR,Directory\Shell\StartPowerShellHereAdministrator
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
+HKCR,Drive\Shell\StartPowerShellHereAdministrator
 
 [StartPowerShellHereAdministrator.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"

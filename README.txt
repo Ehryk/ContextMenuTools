@@ -1,14 +1,24 @@
-			      /##########################\
-			      |### Context Menu Tools ###|
-			      \##########################/
+                              /##########################\
+                              |### Context Menu Tools ###|
+                              \##########################/
+                                     Version: 1.0
+                                  Author: Eric Menze
+                               Windows 7, Windows Vista
 
-These tools add functionality to your context menu.  They all have easy uninstall entries in the Programs Control Panel option.  They are written for Windows 7, although they should work fine in Vista as well.
+These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have been tested in Windows 7 and Vista (although you may need to install PowerShell manually).
 
-If you find any problems, or would like to request more (or custom) options, email me at: Ehryk42@gmail.com  
+If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other popular tools that would be helpful to add to the in the context menu.
 
-				  ====================
-				  ===> PowerShell <===
-				  ====================
+                                   ===================
+                                   ===> The Story <===
+                                   ===================
+
+After using PowerShell and Git Bash a lot, I found it irritating to start in my home directory each time I opened a new prompt.  Microsoft published their Elevation Power Toys, which would launch PowerShell and the command prompt from the context menus of drives and directories, but I found it lacking in a few features.  What I wanted most was to right click the backgrounds of directories and drives, Git support, and other nitpicky details.  This gave birth to this project.
+
+I used the basic structure of the .INF files to write my own, with custom icons and more features.  I alter the Administrator prompts to reflect the elevated commands, customize the PowerShell prompts, set default colors, and most importantly add the ability to right click anywhere in a directory or drive.
+                                  ====================
+                                  ===> PowerShell <===
+                                  ====================
 
 Start PowerShell Here
 Default Key: p
@@ -34,9 +44,9 @@ Keep PowerShell Blue.reg
 KeepPowerShellBlue.inf
 -When PowerShell is launched directly from the .exe, it does not have the custom blue colors and other options.  These values are saved with the PowerShell.lnk that is usually called.  These registry entries keep PowerShell the way the link makes it, no matter what calls it.
 
-				========================
-				===> Command Prompt <===
-				========================
+                                ========================
+                                ===> Command Prompt <===
+                                ========================
 
 Command Prompt Here
 Default Key: c
@@ -54,9 +64,9 @@ Command Prompt Here (Administrator) (Extended)
 Default Key: c
 - This adds "Command Prompt Here (Administrator)" to the extended context menu only.  The foreground text is red to distinguish it from normal command prompts.
 
-				   ==================
-				   ===> Git Bash <===
-				   ==================
+                                   ==================
+                                   ===> Git Bash <===
+                                   ==================
 
 Git Bash Here (x64)
 Default Key: g
@@ -66,9 +76,9 @@ Git Bash Here (x86)
 Default Key: g
 - This will add the "Git Bash Here" context menu entry with an icon to Directories, Drives, and Directory Backgrounds.  It will only work for the default install location for 32 bit machines (C:\Program Files\Git\Git Bash.vbs).
 
-				 ======================
-				 ===> Open With... <===
-				 ======================
+                                 ======================
+                                 ===> Open With... <===
+                                 ======================
 
 Always Show Open With
 Default Key: e

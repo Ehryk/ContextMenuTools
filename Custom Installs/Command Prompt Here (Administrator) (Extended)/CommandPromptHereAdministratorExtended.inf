@@ -5,6 +5,8 @@ Signature="$Windows NT$"
 CopyFiles = CommandPromptHereAdministratorExtended.Files.Inf
 CopyFiles = CommandPromptHereAdministratorExtended.Files.System
 CopyFiles = CommandPromptHereAdministratorExtended.Files.Icon
+DelFiles  = CommandPromptHereAdministrator.Files.Clean
+DelReg    = CommandPromptHereAdministrator.Clean
 AddReg    = CommandPromptHereAdministratorExtended.AddReg
 DelReg    = cmd.DelReg
 
@@ -12,6 +14,8 @@ DelReg    = cmd.DelReg
 CopyFiles = CommandPromptHereAdministratorExtended.Files.Inf
 CopyFiles = CommandPromptHereAdministratorExtended.Files.System
 CopyFiles = CommandPromptHereAdministratorExtended.Files.Icon
+DelFiles  = CommandPromptHereAdministrator.Files.Clean
+DelReg    = CommandPromptHereAdministrator.Clean
 AddReg    = CommandPromptHereAdministratorExtended.AddReg
 DelReg    = cmd.DelReg
 
@@ -29,6 +33,7 @@ cmdAdmin.ico=55
 
 [DestinationDirs]
 CommandPromptHereAdministratorExtended.Files.Inf    = 17
+CommandPromptHereAdministrator.Files.Clean          = 17
 CommandPromptHereAdministratorExtended.Files.System = 11
 CommandPromptHereAdministratorExtended.Files.Icon   = 11
 
@@ -41,6 +46,15 @@ Elevate.vbs
 
 [CommandPromptHereAdministratorExtended.Files.Icon]
 cmdAdmin.ico
+
+[CommandPromptHereAdministrator.Files.Clean]
+CommandPromptHereAdministrator.inf
+
+[CommandPromptHereAdministrator.Clean]
+HKLM,%CDHERE%
+HKCR,Directory\Shell\CommandPromptHereAdministrator
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
+HKCR,Drive\Shell\CommandPromptHereAdministrator
 
 [CommandPromptHereAdministratorExtended.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
@@ -98,3 +112,4 @@ DisplayName="Context Menu: Command Prompt Here (Administrator) (Extended)"
 DisplayVersion="1.0"
 ContextText="&Command Prompt Here (Administrator)"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereAdministratorExtended"
+CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereAdministrator"

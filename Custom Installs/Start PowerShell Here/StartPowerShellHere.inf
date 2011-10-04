@@ -4,11 +4,15 @@ Signature="$Windows NT$"
 [StartPowerShellHereInstall]
 CopyFiles = StartPowerShellHere.Files.Inf
 CopyFiles = StartPowerShellHere.Files.Icon
+DelFiles  = StartPowerShellHereExtended.Files.Clean
+DelReg    = StartPowerShellHereExtended.Clean
 AddReg    = StartPowerShellHere.AddReg
 
 [DefaultInstall]
 CopyFiles = StartPowerShellHere.Files.Inf
 CopyFiles = StartPowerShellHere.Files.Icon
+DelFiles  = StartPowerShellHereExtended.Files.Clean
+DelReg    = StartPowerShellHereExtended.Clean
 AddReg    = StartPowerShellHere.AddReg
 
 [DefaultUnInstall]
@@ -23,14 +27,24 @@ StartPowerShellHere.INF=55
 PowerShell.ico=55
 
 [DestinationDirs]
-StartPowerShellHere.Files.Inf = 17
-StartPowerShellHere.Files.Icon = 11
+StartPowerShellHere.Files.Inf           = 17
+StartPowerShellHereExtended.Files.Clean = 17
+StartPowerShellHere.Files.Icon          = 11
 
 [StartPowerShellHere.Files.Inf]
 StartPowerShellHere.INF
 
 [StartPowerShellHere.Files.Icon]
 PowerShell.ico
+
+[StartPowerShellHereExtended.Files.Clean]
+StartPowerShellHereExtended.inf
+
+[StartPowerShellHereExtended.Clean]
+HKLM,%UDHERE%Extended
+HKCR,Directory\Shell\StartPowerShellHere
+HKCR,Directory\Background\Shell\StartPowerShellHere
+HKCR,Drive\Shell\StartPowerShellHere
 
 [StartPowerShellHere.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"

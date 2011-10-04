@@ -1,0 +1,99 @@
+[version]
+Signature="$Windows NT$"
+
+[UninstallUnInstall]
+DelFiles  = Uninstall.Files.Inf
+DelReg    = Uninstall.DelReg
+AddReg    = Uninstall.AddReg
+
+[DefaultInstall]
+DelFiles  = Uninstall.Files.Inf
+DelReg    = Uninstall.DelReg
+AddReg    = Uninstall.AddReg
+
+[DefaultUnInstall]
+DelFiles  = Uninstall.Files.Inf
+DelReg    = Uninstall.DelReg
+AddReg    = Uninstall.AddReg
+
+[Uninstall.Files.Inf]
+;Remove .inf files
+AlwaysShowOpenWith.inf
+KeepPowerShellBlue.inf
+
+ContextMenuTools.inf
+
+GitBashHere.inf
+
+CommandPromptHere.inf
+CommandPromptHereExtended.inf
+CommandPromptHereAdministrator.inf
+CommandPromptHereAdministratorExtended.inf
+
+StartPowerShellHere.inf
+StartPowerShellHereExtended.inf
+StartPowerShellHereAdministrator.inf
+StartPowerShellHereAdministratorExtended.inf
+
+[Uninstall.DelReg]
+;Remove Program Uninstall entries
+HKLM,%UDHERE%\AlwaysShowOpenWith
+HKLM,%UDHERE%\KeepPowerShellBlue
+
+HKLM,%UDHERE%\ContextMenuTools
+
+HKLM,%UDHERE%\GitBashHere
+
+HKLM,%UDHERE%\CommandPromptHere
+HKLM,%UDHERE%\CommandPromptHereExtended
+HKLM,%UDHERE%\CommandPromptHereAdministrator
+HKLM,%UDHERE%\CommandPromptHereAdministratorExtended
+
+HKLM,%UDHERE%\StartPowerShellHere
+HKLM,%UDHERE%\StartPowerShellHereExtended
+HKLM,%UDHERE%\StartPowerShellHereAdministrator
+HKLM,%UDHERE%\StartPowerShellHereAdministratorExtended
+
+;Remove Registry Entries
+HKCR,*\Shell\AlwaysShowOpenWith
+
+HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
+
+HKCR,Directory\Shell\Git_Shell
+HKCR,Directory\Background\Shell\Git_Shell
+HKCR,Drive\Shell\Git_Shell
+
+HKCR,Directory\Shell\CommandPromptHere
+HKCR,Directory\Background\Shell\CommandPromptHere
+HKCR,Drive\Shell\CommandPromptHere
+
+HKCR,Directory\Shell\CommandPromptHereAdministrator
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
+HKCR,Drive\Shell\CommandPromptHereAdministrator
+
+HKCR,Directory\Shell\StartPowerShellHere
+HKCR,Directory\Background\Shell\StartPowerShellHere
+HKCR,Drive\Shell\StartPowerShellHere
+
+HKCR,Directory\Shell\StartPowerShellHereAdministrator
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
+HKCR,Drive\Shell\StartPowerShellHereAdministrator
+
+[Uninstall.AddReg]
+HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Shell\cmd,Extended,,""
+HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Directory\Background\Shell\cmd,Extended,,""
+HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
+HKCR,Drive\Shell\cmd,Extended,,""
+HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
+HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+
+[Strings]
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall"

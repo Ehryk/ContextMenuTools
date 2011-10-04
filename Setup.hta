@@ -1,0 +1,392 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Context Menu Tools</title>
+	<meta name="description" content="Context Menu Tools">
+	<meta name="author" content="Ehryk Menze">
+	
+	<HTA:APPLICATION 
+		ID="1.0" 
+		APPLICATIONNAME="Context Menu Tools" 
+		BORDER="no" 
+		CAPTION="no" 
+		SHOWINTASKBAR="yes" 
+		SINGLEINSTANCE="yes" 
+		SYSMENU="yes" 
+		SCROLL="no" 
+		ICON="Images/ContextMenuTools.ico" 
+		WINDOWSTATE="normal">
+	  
+	<style type="text/css">
+		html, body
+		{
+			height:100%;
+		}
+		
+		.container
+		{
+			max-height: 100%;
+			min-height: 100%;
+			height: auto !important;
+			height: 100%;
+			margin: 0 auto -1em;
+			overflow: visible;
+		}
+		
+		.header
+		{
+			background-color: #333;
+		}
+		
+		.menu
+		{
+			width: 100%;
+		}
+		
+		.menu table
+		{
+			width:100%;
+			height:50px;
+			table-layout:fixed;
+		}
+		
+		.menu td
+		{
+			text-align: center;
+		}
+	 
+		.menu td a
+		{
+			text-decoration: none;
+			color: white;
+			padding: 10.5px 11px;
+		}
+	 
+		.menu td a:visited
+		{
+			color: white;
+		}
+	 
+		.menu td a:hover
+		{
+			color: #fff;
+			background-color: #b00000;
+		}
+		
+		.menu .current
+		{
+			color: #fff;
+			background-color: #800000;
+		}
+		
+		h1
+		{
+			text-align: center;
+			color: white;
+			margin: 0px;
+			padding:10px;
+		}
+		
+		h2, h3
+		{
+			font-weight: bold;
+			text-align: center;
+			margin: 10px;
+		}
+		
+		h4
+		{
+			font-weight: bold;
+		}
+		
+		.button
+		{
+			font: bold 16px "Helvetica Neue", Helvetica, Arial, clean, sans-serif !important;
+			border-radius: 5px;
+			display: block;
+			color: white;
+			padding: 4px 10px 4px;
+			white-space: nowrap;
+			text-decoration: none;
+			cursor: pointer;
+			background: #880000 url(/Images/button_overlay.png) repeat-x scroll 0 0;
+			border-style: none;
+			text-align: center;
+			overflow: visible;
+			margin:5px;
+		}
+		 
+		.button:hover,
+		.button:focus 
+		{
+			background-position: 0 -50px;
+			color: white;
+		}
+		 
+		.button:active 
+		{
+			background-position: 0 -100px;
+		}
+		
+		.main div .left
+		{
+			width:40%;
+			float: left;
+			clear: right;
+		}
+		
+		.main div .right
+		{
+			width: 59%;
+			float: left;
+		}
+		
+		.footer, .push
+		{
+			clear: both;
+			height: 1em;
+		}
+		
+		.footer
+		{
+			background:#333;
+		}
+		
+		* 
+		{
+			margin: 0;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="header">
+			<h1>Context Menu Tools</h1>
+			<div class="menu">
+				<table>
+					<tr>
+						<td><a id="a_home"    href="#" onclick="changeTo('home');" class="current">Home</a></td>
+						<td><a id="a_default" href="#" onclick="changeTo('default');">Default&nbsp;Install</a></td>
+						<td><a id="a_custom"  href="#" onclick="changeTo('custom');">Custom&nbsp;Install</a></td>
+						<td><a id="a_other"   href="#" onclick="changeTo('other');">Other&nbsp;Tools</a></td>
+						<td><a id="a_about"   href="#" onclick="changeTo('about');">About</a></td>
+						<td><a id="a_exit"    href="#" onclick="exit();">Exit</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div id="main" class="main" role="main">
+		
+			<div id="home" class="Section">
+				<br />
+				<img src="Images/AdministratorCommandPrompt.png" style="width:25%;float:left;margin:5px;" />
+				<img src="Images/DefaultInstallExtended.png" style="width:20%;float:left;clear:left;margin:5px;" />
+				<img src="Images/PowerShellDefault.png" style="width:30%;float:right;margin:5px;" />
+				Isn't it annoying to enter the command prompt, PowerShell, or Git Bash from your home directory each time?  Or to have to go a directory down to right click a folder to "Open Git Bash Here"?  How about browsing for the executable to "Run as Administrator", and then hitting "OK" at the slow User Account Control window?  Context Menu Tools fixes that.
+				<br /><br />
+				This tool adds some helpful functionality to your Windows context menus - both the normal one, when right clicking on OR in a directory or drive, and more advanced options in the Extended context menu (shift + right click).  When you select any option marked (Administrator) from the extended context menu, the UAC window is bypassed and you are brought quickly to an elevated command prompt or PowerShell window.
+				<br /><br />
+				Even further, the elevated command prompts are clearly marked.  PowerShell's prompt is set to (User) (Location)>, and it writes the user in green or "Administrator" in red, and "Administrator: " is added to the window title.  Administrator command prompts open with red foreground text.
+				I recommend starting with the default install. 
+				<br /><br />
+				<div style="width:100%;text-align:center; font-weight: bold;">Written for Windows 7/Vista only - use in XP at your own risk</div><br />
+				<div style="width:100%;text-align:center;clear:both;"><input type="button" class="button" style="float:none;display:inline;margin-right:30px;" onclick="run('Default Install With Git.exe');" value="Default Install With Git" /><input type="button" class="button" style="float:none;display:inline;" onclick="run('Default Install Without Git.exe');" value="Default Install without Git" /></div>
+			</div>
+		
+			<div id="default" class="Section" style="display:none;">
+				<div class="left">
+					<h2 class="Title">Installers</h2>
+					<input type="button" class="button" onclick="run('Default Install With Git.exe');" value="Default Install with Git (Auto-Detect)" />
+					<input type="button" class="button" onclick="run('Default Install (Git, x64) (64 bit)\\ContextMenuTools.inf');" value="Default Install with Git for 64 bit machines" />
+					<input type="button" class="button" onclick="run('Default Install (Git, x86) (32 bit)\\ContextMenuTools.inf');" value="Default Install with Git for 32 bit machines" />
+					<input type="button" class="button" onclick="run('Default Install Without Git.exe');" value="Default Install without Git" />
+					<br /><br /><br /><br /><br /><br />
+					<h2 class="Title">Uninstall</h2>
+					<input type="button" class="button" onclick="run('Uninstall.exe');" value="Revert back to System Defaults" />
+					<input type="button" class="button" onclick="run('Other Tools\\UninstallAll.inf');" value="Remove Menu Entries Only" />
+				</div>
+				
+				<div class="right">
+					<h2 class="Title">Default (Recommended)</h2>
+					This installs the following to your machine: 
+					<br /> <br />
+					Normal Context Menu
+					<img src="Images/DefaultInstall.png" style="float:right" />
+					<ul>
+						<li>Git Bash Here</li>
+						<li>Start PowerShell Here</li>
+					</ul><br />
+					Extended Context Menu (Shift + Right Click)
+					<img src="Images/DefaultInstallExtended.png" style="float:right" />
+					<ul>
+						<li>Command Prompt Here (Administrator)</li>
+						<li>Git Bash Here</li>
+						<li>Start PowerShell Here</li>
+						<li>Start PowerShell Here (Administrator)</li>
+					</ul><br />
+					It also forces powershell to keep the normal blue color scheme and window size when opened directly from the .exe.  
+					<br /><br />
+					To uninstall, you can enter Control Panel -> Programs and select Context Menu Tools from the list of installed programs, or click one of the uninstall buttons.  Revert puts in the entries replaced by the suite (Recommended), Remove Only does not.
+
+				</div>
+			</div>
+		
+			<div id="custom" class="Section" style="display:none;">
+				<div class="left">
+					<h2 class="Title">Normal Context Menu</h2>
+					<input type="button" class="button" onclick="run('Custom Installs\\Command Prompt Here\\CommandPromptHere.inf');" value="Command Prompt Here" />
+					<input type="button" class="button" onclick="run('Custom Installs\\Command Prompt Here (Administrator)\\CommandPromptHereAdministrator.inf');" value="Command Prompt Here (Administrator)" />
+					<input type="button" class="button" onclick="run('Custom Installs\\Start PowerShell Here\\StartPowerShellHere.inf');" value="Start PowerShell Here" />
+					<input type="button" class="button" onclick="run('Custom Installs\\Start PowerShell Here (Administrator)\\StartPowerShellHereAdministrator.inf');" value="Start PowerShell Here (Administrator)" />
+					<input type="button" class="button" onclick="run('Custom Installs\\GitBashHere(x64).inf');" value="Git Bash Here (x64) (64 bit)" />
+					<input type="button" class="button" onclick="run('Custom Installs\\GitBashHere(x86).inf');" value="Git Bash Here (x86) (32 bit)" />
+					
+					<h2 class="Title">Extended Context Menu</h2>
+					<input type="button" class="button" onclick="run('Custom Installs\\Command Prompt Here (Extended)\\CommandPromptHereExtended.inf');" value="Command Prompt Here" />
+					<input type="button" class="button" onclick="run('Custom Installs\\Command Prompt Here (Administrator) (Extended)\\CommandPromptHereAdministratorExtended.inf');" value="Command Prompt Here (Administrator)" />
+					<input type="button" class="button" onclick="run('Custom Installs\\Start PowerShell Here (Extended)\\StartPowerShellHereExtended.inf');" value="Start PowerShell Here" />
+					<input type="button" class="button" onclick="run('Custom Installs\\Start PowerShell Here (Administrator) (Extended)\\StartPowerShellHereAdministratorExtended.inf');" value="Start PowerShell Here (Administrator)" />
+				</div>
+				
+				<div class="right">
+					<h2 class="Title">Custom</h2>
+					These installers add each item individually.  Installing the extended version replaces the normal version, and vice versa (otherwise there would be duplicate entries).
+					<br /><br />
+					The extended context menu is accessed by holding down shift and right clicking.  The installers marked Extended will only show when shift is pressed.
+					<br /><br />
+					To mimic the Default Install, choose:
+					<img src="Images/DefaultInstallExtended.png" style="float:right" />
+					<ul>
+						<li>Command Prompt Here (Administrator)</li>
+						<li>Git Bash Here</li>
+						<li>Start PowerShell Here</li>
+						<li>Start PowerShell Here (Administrator)</li>
+						<li>Keep PowerShell Blue (in Other Tools)</li>
+					</ul><br />
+					To uninstall individually, go to Control Panel -> Programs and look under "Context Menu: XXX", then double click to uninstall.  To uninstall everything, use the buttons in Default Install.
+					<br /><br />
+					Everything here is available though .inf installers and a few executables in the main directory for advanced users.
+				</div>
+			</div>
+		
+			<div id="other" class="Section" style="display:none;">
+				<div class="left">
+					<h2 class="Title">Installers</h2>
+					<input type="button" class="button" onclick="run('Other Tools\\KeepPowerShellBlue.inf');" value="Keep PowerShell Blue (Install)" />
+					<input type="button" class="button" onclick="run('Other Tools\\Keep PowerShell Blue.reg');" value="Keep PowerShell Blue (Registry)" />
+					<br />
+					<input type="button" class="button" onclick="run('Other Tools\\Always Show Open With\\AlwaysShowOpenWith.inf');" value="Always Show Open With..." />
+					<br />
+					<input type="button" class="button" onclick="run('Other Tools\\Return Default Git Context Menu Entries\\Bash(x64).inf');" value="Return Git Bash Here (x64) (64 bit)" />
+					<input type="button" class="button" onclick="run('Other Tools\\Return Default Git Context Menu Entries\\Bash(x86).inf');" value="Return Git Bash Here (x86) (32 bit)" />
+				</div>
+				
+				<div class="right">
+					<h2 class="Title">Other Tools</h2>
+					These other useful tools for the context menu.<br /><br />
+					<img src="Images/PowerShellDefault.png" style="width:30%;float:right" />
+					<b>Keep PowerShell Blue</b> Forces PowerShell to retain the default colors and window size when launched directly from the .exe.  By default these settings are stored in the .lnk file that is chosen from the Run command.  If it is not installed, then PowerShell will look like cmd from the context menu.  This may be done by running a .reg file (no uninstall option in Control Panel) or using the automatic installer (recommended).<br /><br />
+					<b>Always Show Open With...</b> Forces Windows to always display the Open With... menu entry when right clicking any file type.  This sometimes shows duplicate entries, so it isn't part of the default install.<br /><br />
+					<b>Return Git ...</b> Replaces the default context menu items when Git was installed.  They are replaced by the Default Install, and removed when uninstalled.  By default, these are only available when right clicking a directory.<br /><br />
+				</div>
+			</div>
+		
+			<div id="about" class="Section" style="display:none;">
+				<h2 class="Title">Context Menu Tools v1.0</h2>
+				<h3>Written by Eric Menze</h3><br /><br />
+				
+				<div class="left" style="text-align:center">
+					<img src="Default Install (Git, x64) (64 bit)/cmd.ico" style="width:10%;">
+					<img src="Default Install (Git, x64) (64 bit)/cmdAdmin.ico" style="width:10%;%;">
+					<img src="Default Install (Git, x64) (64 bit)/PowerShell.ico" style="width:10%;">
+					<img src="Default Install (Git, x64) (64 bit)/PowerShellAdmin.ico" style="width:10%;">
+					<img src="Default Install (Git, x64) (64 bit)/Git.ico" style="width:15%;"><br />
+					<img src="Images/PowerShellDefault.png" style="width:80%;" />
+				</div>
+				
+				<div class="right">
+					After using PowerShell and Git Bash a lot, I found it irritating to start in my home directory each time I opened a new prompt.  Microsoft published their Elevation Power Toys, which would launch PowerShell and the command prompt from the context menus when right clicking drives and directories, but I found it lacking in a few features.  What I wanted most was to right click the backgrounds of directories and drives, Git support, and other nitpicky details.  This gave birth to this project.<br /><br />
+					I used the basic structure of their sample .INF files to write my own, with custom icons and more features.  I alter the Administrator prompts to reflect the elevated status, customize the PowerShell prompts, set default colors, and most importantly add the ability to right click anywhere in a directory or drive.<br /><br />
+					If you find any bugs to report or would like to request additional features, please do so either on the <a href='https://github.com/Ehryk/ContextMenuTools'>Project Page at GitHub</a> or <a href="mailto:ehryk42@gmail.com">my email</a>.  I'd be interested in any other commands that would be helpful in the context menu<br /><br />
+				</div>
+			</div>
+			
+		</div>
+			
+		<div class="push"></div>
+	
+	</div>
+	
+	<div class="footer">
+
+	</div>
+	
+	<script type="text/javascript">
+		function changeTo(section) {
+			hideAll();
+			show(section);
+			return false;
+		}
+	
+		function hideAll() {
+			hide("home");
+			hide("default");
+			hide("custom");
+			hide("other");
+			hide("about");
+		}
+		
+		function show(id) {
+			var e = document.getElementById(id);
+			e.style.display = 'block';
+			e = document.getElementById('a_' + id);
+			e.className = 'current';
+		}
+		
+		function hide(id) {
+			var e = document.getElementById(id);
+			e.style.display = 'none';
+			e = document.getElementById('a_' + id);
+			e.className = '';
+		}
+		
+		function run(file) {
+			var cd, cmd, u = true;
+			shell = new ActiveXObject("WScript.Shell");
+			cd = shell.CurrentDirectory;
+			
+			cmd = "\"" + cd + '\\' + file + "\"";
+			
+			if (file.indexOf(".inf") != -1)
+				cmd = "rundll32.exe advpack.dll,LaunchINFSectionEx " + cmd;
+			
+			if (file.indexOf(".reg") >= 0 || file.indexOf("Uninstall") >= 0)
+				u = false;
+			
+			//alert(file);
+			//alert(cd);
+			var r = confirm("This will " + (u ? "install" : "run") + ": \"" + file + "\".  " + (u ? "It can be uninstalled from the Programs section in the Control Panel." : ""));
+			
+			if (r == true)
+				shell.Run(cmd, 1, false);
+				
+			return false;
+        }
+		
+		function exit() {
+			self.close();
+        }
+	</script>
+  
+</body>
+
+</html>

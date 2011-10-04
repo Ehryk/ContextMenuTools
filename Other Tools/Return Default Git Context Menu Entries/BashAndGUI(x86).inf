@@ -25,10 +25,10 @@ ReturnDefault.INF
 [ReturnDefault.AddReg]
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\git_shell,,,"%BashContextText%"
-HKCR,Directory\Shell\git_shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+HKCR,Directory\Shell\git_shell\command,,,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%1"""
 
-HKCR,Directory\Shell\git_shell,,,"%GUIContextText%"
-HKCR,Directory\Shell\git_shell\command,,,"wscript ""%24%\Program Files\Git\libexec\git-core\git-gui"" ""-working-dir"" ""%1"""
+HKCR,Directory\Shell\git_gui,,,"%GUIContextText%"
+HKCR,Directory\Shell\git_gui\command,,,"wscript ""%24%\Program Files\Git\libexec\git-core\git-gui"" ""-working-dir"" ""%1"""
 
 [ReturnDefault.DelReg]
 

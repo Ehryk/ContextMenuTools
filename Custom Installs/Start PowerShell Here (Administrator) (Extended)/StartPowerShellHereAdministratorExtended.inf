@@ -5,12 +5,16 @@ Signature="$Windows NT$"
 CopyFiles = StartPowerShellHereAdministratorExtended.Files.Inf
 CopyFiles = StartPowerShellHereAdministratorExtended.Files.System
 CopyFiles = StartPowerShellHereAdministratorExtended.Files.Icon
+DelFiles  = StartPowerShellHereAdministrator.Files.Clean
+DelReg    = StartPowerShellHereAdministrator.Clean
 AddReg    = StartPowerShellHereAdministratorExtended.AddReg
 
 [DefaultInstall]
 CopyFiles = StartPowerShellHereAdministratorExtended.Files.Inf
 CopyFiles = StartPowerShellHereAdministratorExtended.Files.System
 CopyFiles = StartPowerShellHereAdministratorExtended.Files.Icon
+DelFiles  = StartPowerShellHereAdministrator.Files.Clean
+DelReg    = StartPowerShellHereAdministrator.Clean
 AddReg    = StartPowerShellHereAdministratorExtended.AddReg
 
 [DefaultUnInstall]
@@ -26,6 +30,7 @@ PowerShellAdmin.ico=55
 
 [DestinationDirs]
 StartPowerShellHereAdministratorExtended.Files.Inf    = 17
+StartPowerShellHereAdministrator.Files.Clean          = 17
 StartPowerShellHereAdministratorExtended.Files.System = 11
 StartPowerShellHereAdministratorExtended.Files.Icon   = 11
 
@@ -39,6 +44,15 @@ Elevate.vbs
 [StartPowerShellHereAdministratorExtended.Files.Icon]
 PowerShellAdmin.ico
 
+[StartPowerShellHereAdministrator.Files.Clean]
+StartPowerShellHereAdministrator.inf
+
+[StartPowerShellHereAdministrator.Clean]
+HKLM,%CDHERE%
+HKCR,Directory\Shell\StartPowerShellHereAdministrator
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
+HKCR,Drive\Shell\StartPowerShellHereAdministrator
+
 [StartPowerShellHereAdministratorExtended.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
 HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
@@ -46,30 +60,32 @@ HKLM,%UDHERE%,DisplayIcon,,"%11%\PowerShellAdmin.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\StartPowerShellHereAdministratorExtended.inf"
 
 ;Adds entry when right-clicking a Directory
-HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended,,,"%ContextText%"
- ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
-HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended,Extended,,""
+HKCR,Directory\Shell\StartPowerShellHereAdministrator,,,"%ContextText%"
+HKCR,Directory\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
+HKCR,Directory\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
+HKCR,Directory\Shell\StartPowerShellHereAdministrator,Extended,,""
 
 ;Adds entry when right-clicking "empty space" in a directory
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended,,,"%ContextText%"
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended,Extended,,""
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,,,"%ContextText%"
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Extended,,""
 
 ;Adds entry when right-clicking a Drive
-HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended,,,"%ContextText%"
-HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
-HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
-HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended,Extended,,""
+HKCR,Drive\Shell\StartPowerShellHereAdministrator,,,"%ContextText%"
+HKCR,Drive\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
+HKCR,Drive\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
+HKCR,Drive\Shell\StartPowerShellHereAdministrator,Extended,,""
 
 [StartPowerShellHereAdministratorExtended.DelReg]
 HKLM,%UDHERE%
-HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended
-HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended
+HKCR,Directory\Shell\StartPowerShellHereAdministrator
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
+HKCR,Drive\Shell\StartPowerShellHereAdministrator
 
 [Strings]
 DisplayName="Context Menu: Start PowerShell Here (Administrator) (Extended)"
 DisplayVersion="1.0"
 ContextText="Start &PowerShell Here (Administrator)"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHereAdministratorExtended"
+CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHereAdministrator"

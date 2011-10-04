@@ -4,11 +4,15 @@ Signature="$Windows NT$"
 [StartPowerShellHereExtendedInstall]
 CopyFiles = StartPowerShellHereExtended.Files.Inf
 CopyFiles = StartPowerShellHereExtended.Files.Icon
+DelFiles  = StartPowerShellHere.Files.Clean
+DelReg    = StartPowerShellHere.Clean
 AddReg    = StartPowerShellHereExtended.AddReg
 
 [DefaultInstall]
 CopyFiles = StartPowerShellHereExtended.Files.Inf
 CopyFiles = StartPowerShellHereExtended.Files.Icon
+DelFiles  = StartPowerShellHere.Files.Clean
+DelReg    = StartPowerShellHere.Clean
 AddReg    = StartPowerShellHereExtended.AddReg
 
 [DefaultUnInstall]
@@ -23,7 +27,8 @@ StartPowerShellHereExtended.INF=55
 PowerShell.ico=55
 
 [DestinationDirs]
-StartPowerShellHereExtended.Files.Inf = 17
+StartPowerShellHereExtended.Files.Inf  = 17
+StartPowerShellHere.Files.Clean        = 17
 StartPowerShellHereExtended.Files.Icon = 11
 
 [StartPowerShellHereExtended.Files.Inf]
@@ -31,6 +36,15 @@ StartPowerShellHereExtended.INF
 
 [StartPowerShellHereExtended.Files.Icon]
 PowerShell.ico
+
+[StartPowerShellHere.Files.Clean]
+StartPowerShellHere.inf
+
+[StartPowerShellHere.Clean]
+HKLM,%CDHERE%
+HKCR,Directory\Shell\StartPowerShellHere
+HKCR,Directory\Background\Shell\StartPowerShellHere
+HKCR,Drive\Shell\StartPowerShellHere
 
 [StartPowerShellHereExtended.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
@@ -67,3 +81,4 @@ DisplayName="Context Menu: Start PowerShell Here (Extended)"
 DisplayVersion="1.0"
 ContextText="Start &PowerShell Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHereExtended"
+CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHere"
