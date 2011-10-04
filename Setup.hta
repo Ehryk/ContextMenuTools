@@ -20,6 +20,24 @@
 		SCROLL="no" 
 		ICON="Images/ContextMenuTools.ico" 
 		WINDOWSTATE="normal">
+		
+	<SCRIPT LANGUAGE="VBScript">
+
+		Sub Window_onLoad
+			strComputer = "."
+			Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\cimv2")
+			Set colItems = objWMIService.ExecQuery("Select * From Win32_DesktopMonitor")
+			For Each objItem in colItems
+				intHorizontal = objItem.ScreenWidth
+				intVertical = objItem.ScreenHeight
+			Next
+			intLeft = (intHorizontal - 900) / 2
+			intTop = (intVertical - 600) / 2
+			window.resizeTo 900,600
+			window.moveTo intLeft, intTop
+		End Sub 
+
+	</SCRIPT>
 	  
 	<style type="text/css">
 		html, body
@@ -169,7 +187,7 @@
 	<div class="container">
 
 		<div class="header">
-			<h1>Context Menu Tools</h1>
+			<h1>Context Menu Tools v1.0</h1>
 			<div class="menu">
 				<table>
 					<tr>
@@ -199,17 +217,20 @@
 				I recommend starting with the default install. 
 				<br /><br />
 				<div style="width:100%;text-align:center; font-weight: bold;">Written for Windows 7/Vista only - use in XP at your own risk</div><br />
-				<div style="width:100%;text-align:center;clear:both;"><input type="button" class="button" style="float:none;display:inline;margin-right:30px;" onclick="run('Default Install With Git.exe');" value="Default Install With Git" /><input type="button" class="button" style="float:none;display:inline;" onclick="run('Default Install Without Git.exe');" value="Default Install without Git" /></div>
+				<div style="width:100%;text-align:center;clear:both;"><input type="button" class="button" style="float:none;display:inline;margin-right:30px;" onclick="run('Default Install.exe');" value="Default Install" /><input type="button" class="button" style="float:none;display:inline;" onclick="run('SuperUser Install.exe');" value="SuperUser Install" /></div>
 			</div>
 		
 			<div id="default" class="Section" style="display:none;">
 				<div class="left">
 					<h2 class="Title">Installers</h2>
-					<input type="button" class="button" onclick="run('Default Install With Git.exe');" value="Default Install with Git (Auto-Detect)" />
-					<input type="button" class="button" onclick="run('Default Install (Git, x64) (64 bit)\\ContextMenuTools.inf');" value="Default Install with Git for 64 bit machines" />
-					<input type="button" class="button" onclick="run('Default Install (Git, x86) (32 bit)\\ContextMenuTools.inf');" value="Default Install with Git for 32 bit machines" />
-					<input type="button" class="button" onclick="run('Default Install Without Git.exe');" value="Default Install without Git" />
-					<br /><br /><br /><br /><br /><br />
+					<input type="button" class="button" onclick="run('Default Install.exe');" value="Default Install (Auto-Detect Everything)" />
+					<input type="button" class="button" onclick="run('Default Installs\\Default Install With Git.exe');" value="Default Install with Git (Auto-Detect)" />
+					<input type="button" class="button" onclick="run('Default Installs\\Default Install (Git, x64) (64 bit)\\ContextMenuTools.inf');" value="Default Install with Git for 64 bit machines" />
+					<input type="button" class="button" onclick="run('Default Installs\\Default Install (Git, x86) (32 bit)\\ContextMenuTools.inf');" value="Default Install with Git for 32 bit machines" />
+					<input type="button" class="button" onclick="run('Default Installs\\Default Install Without Git.exe');" value="Default Install without Git" />
+					<br />
+					<input type="button" class="button" onclick="run('SuperUser Install.exe');" value="SuperUser Install" />
+					<br /><br />
 					<h2 class="Title">Uninstall</h2>
 					<input type="button" class="button" onclick="run('Uninstall.exe');" value="Revert back to System Defaults" />
 					<input type="button" class="button" onclick="run('Other Tools\\UninstallAll.inf');" value="Remove Menu Entries Only" />
@@ -305,11 +326,11 @@
 				<h3>Written by Eric Menze</h3><br /><br />
 				
 				<div class="left" style="text-align:center">
-					<img src="Default Install (Git, x64) (64 bit)/cmd.ico" style="width:10%;">
-					<img src="Default Install (Git, x64) (64 bit)/cmdAdmin.ico" style="width:10%;%;">
-					<img src="Default Install (Git, x64) (64 bit)/PowerShell.ico" style="width:10%;">
-					<img src="Default Install (Git, x64) (64 bit)/PowerShellAdmin.ico" style="width:10%;">
-					<img src="Default Install (Git, x64) (64 bit)/Git.ico" style="width:15%;"><br />
+					<img src="Default Installs/Default Install (Git, x64) (64 bit)/cmd.ico" style="width:10%;">
+					<img src="Default Installs/Default Install (Git, x64) (64 bit)/cmdAdmin.ico" style="width:10%;%;">
+					<img src="Default Installs/Default Install (Git, x64) (64 bit)/PowerShell.ico" style="width:10%;">
+					<img src="Default Installs/Default Install (Git, x64) (64 bit)/PowerShellAdmin.ico" style="width:10%;">
+					<img src="Default Installs/Default Install (Git, x64) (64 bit)/Git.ico" style="width:15%;"><br />
 					<img src="Images/PowerShellDefault.png" style="width:80%;" />
 				</div>
 				

@@ -6,7 +6,7 @@
                                   Author: Eric Menze
                                Windows 7, Windows Vista
 
-These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have been tested in Windows 7 and Vista (although you may need to install PowerShell manually).
+These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have were written for Windows 7 / Vista, but will probably work in XP as well (although you may need to install PowerShell manually).  Setup explains the multitude of install options, or you can dive right in with the Default Install or SuperUser Install.
 
 If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other commands that would be helpful in the context menu.
 
