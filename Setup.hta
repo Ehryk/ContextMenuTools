@@ -217,20 +217,20 @@
 				I recommend starting with the default install. 
 				<br /><br />
 				<div style="width:100%;text-align:center; font-weight: bold;">Written for Windows 7/Vista only - use in XP at your own risk</div><br />
-				<div style="width:100%;text-align:center;clear:both;"><input type="button" class="button" style="float:none;display:inline;margin-right:30px;" onclick="run('Default Install.exe');" value="Default Install" /><input type="button" class="button" style="float:none;display:inline;" onclick="run('SuperUser Install.exe');" value="SuperUser Install" /></div>
+				<div style="width:100%;text-align:center;clear:both;"><input type="button" class="button" style="float:none;display:inline;margin-right:30px;" onclick="run('Default Install.bat');" value="Default Install" /><input type="button" class="button" style="float:none;display:inline;" onclick="run('SuperUser Install.bat');" value="SuperUser Install" /></div>
 			</div>
 		
 			<div id="default" class="Section" style="display:none;">
 				<div class="left">
 					<h2 class="Title">Installers</h2>
-					<input type="button" class="button" onclick="run('Default Install.exe');" value="Default Install (Auto-Detect Git)" />
-					<input type="button" class="button" onclick="run('Default Installs\\Default Install Without Git.exe');" value="Default Install without Git" />
+					<input type="button" class="button" onclick="run('Default Install.bat');" value="Default Install (Auto-Detect Git)" />
+					<input type="button" class="button" onclick="run('Default Installs\\Default Install Without Git.bat');" value="Default Install without Git" />
 					<br />
-					<input type="button" class="button" onclick="run('SuperUser Install.exe');" value="SuperUser Install (Auto-Detect Git)" />
-					<input type="button" class="button" onclick="run('Default Install\SuperUser Install Without Git.exe');" value="SuperUser Install without Git" />
+					<input type="button" class="button" onclick="run('SuperUser Install.bat');" value="SuperUser Install (Auto-Detect Git)" />
+					<input type="button" class="button" onclick="run('Default Install\SuperUser Install Without Git.bat');" value="SuperUser Install without Git" />
 					<br /><br /><br /><br />
 					<h2 class="Title">Uninstall</h2>
-					<input type="button" class="button" onclick="run('Uninstall.exe');" value="Revert back to System Defaults" />
+					<input type="button" class="button" onclick="run('Uninstall.bat');" value="Revert back to System Defaults" />
 					<input type="button" class="button" onclick="run('Other Tools\\UninstallAll.inf');" value="Remove Menu Entries Only" />
 				</div>
 				
@@ -293,7 +293,7 @@
 					</ul><br />
 					To uninstall individually, go to Control Panel -> Programs and look under "Context Menu: XXX", then double click to uninstall.  To uninstall everything, use the buttons in Default Install.
 					<br /><br />
-					Everything here is available though .inf installers and a few executables in the main directory for advanced users.
+					Everything here is available though .inf installers and a few batch files in the directories for advanced users.
 				</div>
 			</div>
 		
@@ -386,7 +386,7 @@
 			cmd = "\"" + cd + '\\' + file + "\"";
 			
 			if (file.indexOf(".inf") != -1)
-				cmd = "rundll32.exe advpack.dll,LaunchINFSectionEx " + cmd;
+				cmd = "rundll32.exe setupapi,InstallHinfSection DefaultInstall 132 " + cmd;
 			
 			if (file.indexOf(".reg") >= 0 || file.indexOf("Uninstall") >= 0)
 				u = false;

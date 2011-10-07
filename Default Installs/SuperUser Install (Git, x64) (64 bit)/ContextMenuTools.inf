@@ -2,20 +2,20 @@
 Signature="$Windows NT$"
 
 [ContextMenuToolsInstall]
+DelFiles  = ContextMenuTools.Files.Clean
+DelReg    = ContextMenuTools.Clean
 CopyFiles = ContextMenuTools.Files.Inf
 CopyFiles = ContextMenuTools.Files.System
 CopyFiles = ContextMenuTools.Files.Icon
-DelFiles  = ContextMenuTools.Files.Clean
-DelReg    = ContextMenuTools.Clean
 AddReg    = ContextMenuTools.AddReg
 DelReg    = cmd.DelReg
 
 [DefaultInstall]
+DelFiles  = ContextMenuTools.Files.Clean
+DelReg    = ContextMenuTools.Clean
 CopyFiles = ContextMenuTools.Files.Inf
 CopyFiles = ContextMenuTools.Files.System
 CopyFiles = ContextMenuTools.Files.Icon
-DelFiles  = ContextMenuTools.Files.Clean
-DelReg    = ContextMenuTools.Clean
 AddReg    = ContextMenuTools.AddReg
 DelReg    = cmd.DelReg
 
@@ -34,10 +34,11 @@ cmdAdmin.ico         = 55
 PowerShell.ico       = 55
 PowerShellAdmin.ico  = 55
 Git.ico              = 55
+Elevate.cmd          = 55
+Elevate.vbs          = 55
 
 [DestinationDirs]
 ContextMenuTools.Files.Inf    = 17
-ContextMenuTools.Files.Clean  = 17
 ContextMenuTools.Files.System = 11
 ContextMenuTools.Files.Icon   = 11
 

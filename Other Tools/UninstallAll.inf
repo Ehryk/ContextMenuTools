@@ -3,16 +3,22 @@ Signature="$Windows NT$"
 
 [UninstallUnInstall]
 DelFiles  = Uninstall.Files.Inf
+DelFiles  = Uninstall.Files.System
+DelFiles  = Uninstall.Files.Icon
 DelReg    = Uninstall.DelReg
 AddReg    = Uninstall.AddReg
 
 [DefaultInstall]
 DelFiles  = Uninstall.Files.Inf
+DelFiles  = Uninstall.Files.System
+DelFiles  = Uninstall.Files.Icon
 DelReg    = Uninstall.DelReg
 AddReg    = Uninstall.AddReg
 
 [DefaultUnInstall]
 DelFiles  = Uninstall.Files.Inf
+DelFiles  = Uninstall.Files.System
+DelFiles  = Uninstall.Files.Icon
 DelReg    = Uninstall.DelReg
 AddReg    = Uninstall.AddReg
 
@@ -34,6 +40,17 @@ StartPowerShellHere.inf
 StartPowerShellHereExtended.inf
 StartPowerShellHereAdministrator.inf
 StartPowerShellHereAdministratorExtended.inf
+
+[Uninstall.Files.System]
+Elevate.cmd
+Elevate.vbs
+
+[Uninstall.Files.Icon]
+cmd.ico
+cmdAdmin.ico
+PowerShell.ico
+PowerShellAdmin.ico
+Git.ico
 
 [Uninstall.DelReg]
 ;Remove Program Uninstall entries
