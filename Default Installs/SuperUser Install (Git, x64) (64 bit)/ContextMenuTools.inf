@@ -33,6 +33,7 @@ cmd.ico              = 55
 cmdAdmin.ico         = 55
 PowerShell.ico       = 55
 PowerShellAdmin.ico  = 55
+Git.ico              = 55
 
 [DestinationDirs]
 ContextMenuTools.Files.Inf    = 17
@@ -52,6 +53,7 @@ cmd.ico
 cmdAdmin.ico
 PowerShell.ico
 PowerShellAdmin.ico
+Git.ico
 
 [ContextMenuTools.Files.Clean]
 ;Remove .inf files
@@ -127,13 +129,19 @@ HKCR,Directory\Shell\StartPowerShellHere\command,,,"""%11%\windowspowershell\v1.
 HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
 
 HKCR,Directory\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
-HKCR,Directory\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
+HKCR,Directory\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' '; }; """
 HKCR,Directory\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
-HKCR,Directory\Shell\StartPowerShellHereAdministrator,Extended,,""
 
-HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%cmdContextText%"
+HKCR,Directory\Shell\Git_Shell,,,"%GitContextText%"
+HKCR,Directory\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+HKCR,Directory\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+HKCR,Directory\Shell\CommandPromptHere,,,"%cmdContextText%"
+HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
+
+HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Directory\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 ;Adds entries when right-clicking "empty space" in a directory
@@ -144,11 +152,17 @@ HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerS
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Extended,,""
 
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%cmdContextText%"
+HKCR,Directory\Background\Shell\Git_Shell,,,"%GitContextText%"
+HKCR,Directory\Background\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"""
+HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+HKCR,Directory\Background\Shell\CommandPromptHere,,,"%cmdContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""VER"""
+
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER"""
 
 ;Adds entries when right-clicking a Drive
@@ -159,11 +173,17 @@ HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%11%\PowerShell.ico"
 HKCR,Drive\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
 HKCR,Drive\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\windowspowershell\v1.0\powershell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; }; """
 HKCR,Drive\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%11%\PowerShellAdmin.ico"
-HKCR,Drive\Shell\StartPowerShellHereAdministrator,Extended,,""
 
-HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%cmdContextText%"
+HKCR,Drive\Shell\Git_Shell,,,"%GitContextText%"
+HKCR,Drive\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+HKCR,Drive\Shell\Git_Shell,Icon,0x00020000,"%11%\Git.ico"
+
+HKCR,Drive\Shell\CommandPromptHere,,,"%cmdContextText%"
+HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Drive\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
+
+HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Drive\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 ;Make PowerShell keep default blue when opened from .exe
@@ -209,6 +229,10 @@ HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended
 HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended
 
+HKCR,Directory\Shell\Git_Shell
+HKCR,Directory\Background\Shell\Git_Shell
+HKCR,Drive\Shell\Git_Shell
+
 HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
 HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
 HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
@@ -237,10 +261,12 @@ HKCR,Directory\Background\Shell\cmd
 HKCR,Drive\Shell\cmd
 
 [Strings]
-DisplayName="Context Menu Tools"
+DisplayName="Context Menu Tools (SuperUser)"
 DisplayVersion="1.0"
-cmdContextText="&Command Prompt Here (Administrator)"
+cmdContextText="&Command Prompt Here"
+cmdAdminContextText="&Command Prompt Here (Administrator)"
 PowerShellContextText="Start &PowerShell Here"
 PowerShellAdminContextText="Start &PowerShell Here (Administrator)"
+GitContextText="&Git Bash Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\ContextMenuTools"
 CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall"

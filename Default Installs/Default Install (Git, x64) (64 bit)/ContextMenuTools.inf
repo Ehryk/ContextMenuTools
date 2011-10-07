@@ -76,22 +76,21 @@ StartPowerShellHereAdministratorExtended.inf
 
 [ContextMenuTools.Clean]
 ;Remove Program Uninstall entries
-HKLM,%UDHERE%\AlwaysShowOpenWith
-HKLM,%UDHERE%\KeepPowerShellBlue
+HKLM,%CDHERE%\KeepPowerShellBlue
 
-HKLM,%UDHERE%\ContextMenuTools
+HKLM,%CDHERE%\ContextMenuTools
 
-HKLM,%UDHERE%\GitBashHere
+HKLM,%CDHERE%\GitBashHere
 
-HKLM,%UDHERE%\CommandPromptHere
-HKLM,%UDHERE%\CommandPromptHereExtended
-HKLM,%UDHERE%\CommandPromptHereAdministrator
-HKLM,%UDHERE%\CommandPromptHereAdministratorExtended
+HKLM,%CDHERE%\CommandPromptHere
+HKLM,%CDHERE%\CommandPromptHereExtended
+HKLM,%CDHERE%\CommandPromptHereAdministrator
+HKLM,%CDHERE%\CommandPromptHereAdministratorExtended
 
-HKLM,%UDHERE%\StartPowerShellHere
-HKLM,%UDHERE%\StartPowerShellHereExtended
-HKLM,%UDHERE%\StartPowerShellHereAdministrator
-HKLM,%UDHERE%\StartPowerShellHereAdministratorExtended
+HKLM,%CDHERE%\StartPowerShellHere
+HKLM,%CDHERE%\StartPowerShellHereExtended
+HKLM,%CDHERE%\StartPowerShellHereAdministrator
+HKLM,%CDHERE%\StartPowerShellHereAdministratorExtended
 
 ;Remove Registry Entries
 HKCR,*\Shell\AlwaysShowOpenWith
@@ -220,17 +219,17 @@ HKCR,Directory\Shell\StartPowerShellHere
 HKCR,Directory\Background\Shell\StartPowerShellHere
 HKCR,Drive\Shell\StartPowerShellHere
 
-HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended
-HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended
+HKCR,Directory\Shell\StartPowerShellHereAdministrator
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
+HKCR,Drive\Shell\StartPowerShellHereAdministrator
 
 HKCR,Directory\Shell\Git_Shell
 HKCR,Directory\Background\Shell\Git_Shell
 HKCR,Drive\Shell\Git_Shell
 
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Shell\CommandPromptHereAdministrator
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
+HKCR,Drive\Shell\CommandPromptHereAdministrator
 
 HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
 
@@ -263,3 +262,4 @@ PowerShellContextText="Start &PowerShell Here"
 PowerShellAdminContextText="Start &PowerShell Here (Administrator)"
 GitContextText="&Git Bash Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\ContextMenuTools"
+CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall"

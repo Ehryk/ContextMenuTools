@@ -76,22 +76,21 @@ StartPowerShellHereAdministratorExtended.inf
 
 [ContextMenuTools.Clean]
 ;Remove Program Uninstall entries
-HKLM,%UDHERE%\AlwaysShowOpenWith
-HKLM,%UDHERE%\KeepPowerShellBlue
+HKLM,%CDHERE%\KeepPowerShellBlue
 
-HKLM,%UDHERE%\ContextMenuTools
+HKLM,%CDHERE%\ContextMenuTools
 
-HKLM,%UDHERE%\GitBashHere
+HKLM,%CDHERE%\GitBashHere
 
-HKLM,%UDHERE%\CommandPromptHere
-HKLM,%UDHERE%\CommandPromptHereExtended
-HKLM,%UDHERE%\CommandPromptHereAdministrator
-HKLM,%UDHERE%\CommandPromptHereAdministratorExtended
+HKLM,%CDHERE%\CommandPromptHere
+HKLM,%CDHERE%\CommandPromptHereExtended
+HKLM,%CDHERE%\CommandPromptHereAdministrator
+HKLM,%CDHERE%\CommandPromptHereAdministratorExtended
 
-HKLM,%UDHERE%\StartPowerShellHere
-HKLM,%UDHERE%\StartPowerShellHereExtended
-HKLM,%UDHERE%\StartPowerShellHereAdministrator
-HKLM,%UDHERE%\StartPowerShellHereAdministratorExtended
+HKLM,%CDHERE%\StartPowerShellHere
+HKLM,%CDHERE%\StartPowerShellHereExtended
+HKLM,%CDHERE%\StartPowerShellHereAdministrator
+HKLM,%CDHERE%\StartPowerShellHereAdministratorExtended
 
 ;Remove Registry Entries
 HKCR,*\Shell\AlwaysShowOpenWith
@@ -263,3 +262,4 @@ PowerShellContextText="Start &PowerShell Here"
 PowerShellAdminContextText="Start &PowerShell Here (Administrator)"
 GitContextText="&Git Bash Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\ContextMenuTools"
+CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall"
