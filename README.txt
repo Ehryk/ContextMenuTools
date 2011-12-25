@@ -46,6 +46,10 @@ Keep PowerShell Blue.reg
 KeepPowerShellBlue.inf
 -When PowerShell is launched directly from the .exe, it does not have the custom blue colors and other options.  These values are saved with the PowerShell.lnk that is usually called.  These registry entries keep PowerShell the way the link makes it, no matter what calls it.
 
+Keep Command Window Scrollable.reg
+KeepCommandWindowScrollable.inf
+-When cmd.exe is launched directly from the .exe, it is not scrollable.  These values are saved with the cmd.lnk that is usually called.  These registry entries keep cmd.exe the way the link makes it, no matter what calls it.
+
                                 ========================
                                 ===> Command Prompt <===
                                 ========================
