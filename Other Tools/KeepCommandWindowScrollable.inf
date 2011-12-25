@@ -1,0 +1,54 @@
+[version]
+Signature="$Windows NT$"
+
+[KeepPowerShellBlueInstall]
+CopyFiles = KeepCommandWindowScrollable.Files.Inf
+AddReg    = KeepCommandWindowScrollable.AddReg
+
+[DefaultInstall]
+CopyFiles = KeepCommandWindowScrollable.Files.Inf
+AddReg    = KeepCommandWindowScrollable.AddReg
+
+[DefaultUnInstall]
+DelReg    = KeepCommandWindowScrollable.DelReg
+
+[SourceDisksNames]
+55 = "Keep Command Window Scrollable","",1
+
+[SourceDisksFiles]
+KeepCommandWindowScrollable.INF = 55
+
+[DestinationDirs]
+KeepCommandWindowScrollable.Files.Inf = 17
+
+[KeepCommandWindowScrollable.Files.Inf]
+KeepCommandWindowScrollable.INF
+
+[KeepCommandWindowScrollable.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\KeepCommandWindowScrollable.inf"
+
+;Make Command Window scrollable when opened from .exe
+HKCU,Console\%SystemRoot%_system32_cmd.exe,,,
+HKCU,Console\%SystemRoot%_system32_cmd.exe,InsertMode,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_cmd.exe,QuickEdit,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_cmd.exe,ScreenBufferSize,0x00010001,0x0bb80050
+HKCU,Console\%SystemRoot%_system32_cmd.exe,WindowSize,0x00010001,0x00200050
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FontSize,0x00010001,0x000c0008
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FontFamily,0x00010001,0x00000030
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FontWeight,0x00010001,0x00000190
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FaceName,,"Terminal"
+HKCU,Console\%SystemRoot%_system32_cmd.exe,CursorSize,0x00010001,0x00000019
+HKCU,Console\%SystemRoot%_system32_cmd.exe,HistoryBufferSize,0x00010001,0x00000032
+HKCU,Console\%SystemRoot%_system32_cmd.exe,NumberOfHistoryBuffers,0x00010001,0x00000004
+HKCU,Console\%SystemRoot%_system32_cmd.exe,HistoryNoDup,0x00010001,0x00000000
+
+[KeepCommandWindowScrollable.DelReg]
+HKLM,%UDHERE%
+HKCU,Console\%SystemRoot%_system32_cmd.exe
+
+[Strings]
+DisplayName="Keep Command Window Scrollable"
+DisplayVersion="1.0"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\KeepCommandWindowScrollable"

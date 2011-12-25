@@ -26,6 +26,7 @@ AddReg    = Uninstall.AddReg
 ;Remove .inf files
 AlwaysShowOpenWith.inf
 KeepPowerShellBlue.inf
+KeepCommandWindowScrollable.inf
 
 ContextMenuTools.inf
 
@@ -56,6 +57,7 @@ Git.ico
 ;Remove Program Uninstall entries
 HKLM,%UDHERE%\AlwaysShowOpenWith
 HKLM,%UDHERE%\KeepPowerShellBlue
+HKLM,%CDHERE%\KeepCommandWindowScrollable
 
 HKLM,%UDHERE%\ContextMenuTools
 

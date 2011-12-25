@@ -59,6 +59,7 @@ Git.ico
 ;Remove .inf files
 AlwaysShowOpenWith.inf
 KeepPowerShellBlue.inf
+KeepCommandWindowScrollable.inf
 
 ContextMenuTools.inf
 
@@ -77,6 +78,7 @@ StartPowerShellHereAdministratorExtended.inf
 [ContextMenuTools.Clean]
 ;Remove Program Uninstall entries
 HKLM,%CDHERE%\KeepPowerShellBlue
+HKLM,%CDHERE%\KeepCommandWindowScrollable
 
 HKLM,%CDHERE%\ContextMenuTools
 
@@ -217,6 +219,21 @@ HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,History
 HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,NumberOfHistoryBuffers,0x00010001,0x00000004
 HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe,HistoryNoDup,0x00010001,0x00000000
 
+;Make Command Window scrollable when opened from .exe
+HKCU,Console\%SystemRoot%_system32_cmd.exe,,,
+HKCU,Console\%SystemRoot%_system32_cmd.exe,InsertMode,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_cmd.exe,QuickEdit,0x00010001,0x00000001
+HKCU,Console\%SystemRoot%_system32_cmd.exe,ScreenBufferSize,0x00010001,0x0bb80050
+HKCU,Console\%SystemRoot%_system32_cmd.exe,WindowSize,0x00010001,0x00200050
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FontSize,0x00010001,0x000c0008
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FontFamily,0x00010001,0x00000030
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FontWeight,0x00010001,0x00000190
+HKCU,Console\%SystemRoot%_system32_cmd.exe,FaceName,,"Terminal"
+HKCU,Console\%SystemRoot%_system32_cmd.exe,CursorSize,0x00010001,0x00000019
+HKCU,Console\%SystemRoot%_system32_cmd.exe,HistoryBufferSize,0x00010001,0x00000032
+HKCU,Console\%SystemRoot%_system32_cmd.exe,NumberOfHistoryBuffers,0x00010001,0x00000004
+HKCU,Console\%SystemRoot%_system32_cmd.exe,HistoryNoDup,0x00010001,0x00000000
+
 [ContextMenuTools.DelReg]
 HKLM,%UDHERE%
 HKCR,Directory\Shell\StartPowerShellHere
@@ -231,11 +248,17 @@ HKCR,Directory\Shell\Git_Shell
 HKCR,Directory\Background\Shell\Git_Shell
 HKCR,Drive\Shell\Git_Shell
 
+HKCR,Directory\Shell\CommandPromptHere
+HKCR,Directory\Background\Shell\CommandPromptHere
+HKCR,Drive\Shell\CommandPromptHere
+
 HKCR,Directory\Shell\CommandPromptHereAdministrator
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
 HKCR,Drive\Shell\CommandPromptHereAdministrator
 
 HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
+
+HKCU,Console\%SystemRoot%_system32_cmd.exe
 
 [cmd.AddReg]
 HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
