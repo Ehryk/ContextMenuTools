@@ -207,7 +207,7 @@
 			<div id="home" class="Section">
 				<br />
 				<img src="Images/AdministratorCommandPrompt.png" style="width:25%;float:left;margin:5px;" />
-				<img src="Images/DefaultInstallExtended.png" style="width:20%;float:left;clear:left;margin:5px;" />
+				<img src="Images/SuperUserInstall.png" style="width:20%;float:left;clear:left;margin:5px;" />
 				<img src="Images/PowerShellDefault.png" style="width:30%;float:right;margin:5px;" />
 				Isn't it annoying to enter the command prompt, PowerShell, or Git Bash from your home directory each time?  Or to have to go a directory down to right click a folder to "Open Git Bash Here"?  How about browsing for the executable to "Run as Administrator", and then hitting "OK" at the slow User Account Control window?  Context Menu Tools fixes that.
 				<br /><br />
@@ -237,16 +237,18 @@
 				<div class="right">
 					<h2 class="Title">Default (Recommended)</h2>
 					This installs the following to your machine: 
-					<br /> <br />
-					Normal Context Menu
+					<br /><br />
+					<b>Normal Context Menu</b>
 					<img src="Images/DefaultInstall.png" style="float:right" />
 					<ul>
+						<li>Command Prompt Here</li>
 						<li>Git Bash Here</li>
 						<li>Start PowerShell Here</li>
-					</ul><br />
-					Extended Context Menu (Shift + Right Click)
-					<img src="Images/DefaultInstallExtended.png" style="float:right" />
+					</ul>
+					<b>Extended Context Menu</b> (Shift + Right Click)
+					<img src="Images/SuperUserInstall.png" style="float:right" />
 					<ul>
+						<li>Command Prompt Here</li>
 						<li>Command Prompt Here (Administrator)</li>
 						<li>Git Bash Here</li>
 						<li>Start PowerShell Here</li>
@@ -282,9 +284,10 @@
 					<br /><br />
 					The extended context menu is accessed by holding down shift and right clicking.  The installers marked Extended will only show when shift is pressed.
 					<br /><br />
-					To mimic the Default Install, choose:
-					<img src="Images/DefaultInstallExtended.png" style="float:right" />
+					To mimic the <b>Default Install</b>, choose:
+					<img src="Images/SuperUserInstall.png" style="float:right" />
 					<ul>
+						<li>Command Prompt Here</li>
 						<li>Command Prompt Here (Administrator)</li>
 						<li>Git Bash Here</li>
 						<li>Start PowerShell Here</li>
@@ -292,7 +295,7 @@
 						<li>Keep PowerShell Blue (in Other Tools)</li>
 					</ul><br />
 					To uninstall individually, go to Control Panel -> Programs and look under "Context Menu: XXX", then double click to uninstall.  To uninstall everything, use the buttons in Default Install.
-					<br /><br />
+					<br />
 					Everything here is available though .inf installers and a few batch files in the directories for advanced users.
 				</div>
 			</div>
@@ -386,7 +389,7 @@
 			shell = new ActiveXObject("WScript.Shell");
 			cd = shell.CurrentDirectory;
 			
-			cmd = "\"" + cd + '\\' + file + "\"";
+			cmd = "runas /user:administrator /savecred \"" + cd + '\\' + file + "\"";
 			
 			if (file.indexOf(".inf") != -1)
 				cmd = "rundll32.exe setupapi,InstallHinfSection DefaultInstall 132 " + cmd;

@@ -1,0 +1,48 @@
+[version]
+Signature="$Windows NT$"
+
+[KeepPowerShellBlueInstall]
+CopyFiles = KeepGitBashScrollable.Files.Inf
+AddReg    = KeepGitBashScrollable.AddReg
+
+[DefaultInstall]
+CopyFiles = KeepGitBashScrollable.Files.Inf
+AddReg    = KeepGitBashScrollable.AddReg
+
+[DefaultUnInstall]
+DelReg    = KeepGitBashScrollable.DelReg
+
+[SourceDisksNames]
+55 = "Keep Git Bash Scrollable","",1
+
+[SourceDisksFiles]
+KeepGitBashScrollable.INF = 55
+
+[DestinationDirs]
+KeepGitBashScrollable.Files.Inf = 17
+
+[KeepGitBashScrollable.Files.Inf]
+KeepGitBashScrollable.INF
+
+[KeepGitBashScrollable.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\KeepGitBashScrollable.inf"
+
+;Make Command Window scrollable when opened from .exe
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,,,
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,InsertMode,0x00010001,0x00000001
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,QuickEdit,0x00010001,0x00000001
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,ScreenBufferSize,0x00010001,0x0bb80050
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,HistoryBufferSize,0x00010001,0x00000032
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,NumberOfHistoryBuffers,0x00010001,0x00000004
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe,HistoryNoDup,0x00010001,0x00000000
+
+[KeepGitBashScrollable.DelReg]
+HKLM,%UDHERE%
+HKCU,Console\%SystemDrive%_Cygwin_sh.exe
+
+[Strings]
+DisplayName="Keep Git Bash Scrollable"
+DisplayVersion="1.0"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\KeepGitBashScrollable"
