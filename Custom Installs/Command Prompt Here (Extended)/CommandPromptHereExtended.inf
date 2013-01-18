@@ -52,26 +52,26 @@ HKCR,Drive\Shell\CommandPromptHere
 [CommandPromptHereExtended.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
 HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
-HKLM,%UDHERE%,DisplayIcon,,"%11%\cmd.ico"
+HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\cmd.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereExtended.inf"
 
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\CommandPromptHere,,,"%ContextText%"
-HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
 HKCR,Directory\Shell\CommandPromptHere,Extended,,""
-HKCR,Directory\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHere\command,,,"""%SystemRoot%\System32\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CommandPromptHere,,,"%ContextText%"
-HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
 HKCR,Directory\Background\Shell\CommandPromptHere,Extended,,""
-HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""VER"""
+HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"""%SystemRoot%\System32\cmd.exe"" /s /k ""VER"""
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CommandPromptHere,,,"%ContextText%"
-HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%11%\cmd.ico"
+HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
 HKCR,Drive\Shell\CommandPromptHere,Extended,,""
-HKCR,Drive\Shell\CommandPromptHere\command,,,"""%11%\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHere\command,,,"""%SystemRoot%\System32\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
 
 [CommandPromptHereExtended.DelReg]
 HKLM,%UDHERE%

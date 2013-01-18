@@ -59,26 +59,26 @@ HKCR,Drive\Shell\CommandPromptHereAdministrator
 [CommandPromptHereAdministratorExtended.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
 HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
-HKLM,%UDHERE%,DisplayIcon,,"%11%\cmdAdmin.ico"
+HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\cmdAdmin.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereAdministratorExtended.inf"
 
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
 HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER """
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER """
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%11%\cmdAdmin.ico"
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
 HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 [CommandPromptHereAdministratorExtended.DelReg]
 HKLM,%UDHERE%

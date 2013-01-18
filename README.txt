@@ -4,9 +4,11 @@
 
                                      Version: 1.0
                                   Author: Eric Menze
-                               Windows 7, Windows Vista
+                           Windows 8, Windows 7, Windows Vista
 
-These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have were written for Windows 7 / Vista, but will probably work in XP as well (although you may need to install PowerShell manually).  Setup explains the multitude of install options, or you can dive right in with the Default Install or SuperUser Install.
+These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have were written for Windows 8 / 7 / Vista, but will probably work in XP as well (although you may need to install PowerShell manually).  Setup explains the multitude of install options, or you can dive right in with the Default Install or SuperUser Install. 
+
+**NOTE: The installs must be run as Administrator; right click the application and select "Run as Administrator" from the context menu.**
 
 If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other commands that would be helpful in the context menu.
 
@@ -88,4 +90,4 @@ Default Key: g
 
 Always Show Open With
 Default Key: e
-- Windows likes to pick and choose based on the file type when to give you the Open With... context menu entry.  This forces the entry to be present no matter what file type is right clicked, however this causes a dual "Open With..." entry where windows would normally show it.
+- Windows likes to pick and choose based on the file type when to give you the Open With... context menu entry.  This forces the entry to be present no matter what file type is right clicked, however this causes a dual "Open With..." entry in situations where windows would normally show it.

@@ -59,23 +59,23 @@ HKCR,Drive\Shell\CommandPromptHereAdministrator
 [CommandPromptHereAdministrator.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
 HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
-HKLM,%UDHERE%,DisplayIcon,,"%11%\cmdAdmin.ico"
+HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\cmdAdmin.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereAdministrator.inf"
 
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
-HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
+HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER """
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER """
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
-HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%11%\cmdAdmin.ico"
-HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%11%\cmd.exe"" /c Elevate.cmd ""%11%\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
+HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
 
 [CommandPromptHereAdministrator.DelReg]
 HKLM,%UDHERE%
