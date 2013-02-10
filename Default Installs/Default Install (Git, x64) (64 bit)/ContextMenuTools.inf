@@ -159,7 +159,7 @@ HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE Command Prompt: %%%CD%%%"" "
 
 HKCR,Directory\Background\Shell\Git_Shell,,,"%GitContextText%"
-HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"""
+HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%V"""
 HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
 
 HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%PowerShellContextText%"

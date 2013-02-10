@@ -46,7 +46,7 @@ HKCR,Directory\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\Git_Shell,,,"%ContextText%"
 HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
-HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"""
+HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%V"""
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\Git_Shell,,,"%ContextText%"
