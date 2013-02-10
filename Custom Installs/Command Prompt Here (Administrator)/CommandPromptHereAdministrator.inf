@@ -52,9 +52,9 @@ CommandPromptHereAdministratorExtended.inf
 
 [CommandPromptHereAdministratorExtended.Clean]
 HKLM,%UDHERE%Extended
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Shell\CommandPromptHereAdministrator
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
+HKCR,Drive\Shell\CommandPromptHereAdministrator
 
 [CommandPromptHereAdministrator.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
@@ -106,6 +106,6 @@ HKCR,Drive\Shell\cmd
 
 [Strings]
 DisplayName="Context Menu: Command Prompt Here (Administrator)"
-DisplayVersion="1.0"
+DisplayVersion="1.1"
 ContextText="&Command Prompt Here (Administrator)"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereAdministrator"

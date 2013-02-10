@@ -63,22 +63,22 @@ HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\cmdAdmin.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereAdministratorExtended.inf"
 
 ;Adds entry when right-clicking a Directory
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,,,"%cmdAdminContextText%"
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
+HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
+HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
+HKCR,Directory\Shell\CommandPromptHereAdministrator,Extended,,""
+HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 ;Adds entry when right-clicking "empty space" in a directory
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,,,"%cmdAdminContextText%"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE Command Prompt: %%%CD%%%"" "
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Extended,,""
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE Command Prompt: %%%CD%%%"" "
 
 ;Adds entry when right-clicking a Drive
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,,,"%cmdAdminContextText%"
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
+HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
+HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
+HKCR,Drive\Shell\CommandPromptHereAdministrator,Extended,,""
+HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 [CommandPromptHereAdministratorExtended.DelReg]
 HKLM,%UDHERE%
@@ -109,7 +109,7 @@ HKCR,Drive\Shell\cmd
 
 [Strings]
 DisplayName="Context Menu: Command Prompt Here (Administrator) (Extended)"
-DisplayVersion="1.0"
+DisplayVersion="1.1"
 ContextText="&Command Prompt Here (Administrator)"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereAdministratorExtended"
 CDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHereAdministrator"

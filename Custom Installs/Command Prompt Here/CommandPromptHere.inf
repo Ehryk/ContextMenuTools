@@ -99,6 +99,6 @@ HKCR,Drive\Shell\cmd
 
 [Strings]
 DisplayName="Context Menu: Command Prompt Here"
-DisplayVersion="1.0"
+DisplayVersion="1.1"
 ContextText="&Command Prompt Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CommandPromptHere"

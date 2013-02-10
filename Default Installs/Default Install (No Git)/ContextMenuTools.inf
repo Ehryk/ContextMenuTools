@@ -239,6 +239,14 @@ HKCR,Directory\Shell\CommandPromptHereAdministrator
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
 HKCR,Drive\Shell\CommandPromptHereAdministrator
 
+HKCR,Directory\Shell\CommandPromptHereExtended
+HKCR,Directory\Background\Shell\CommandPromptHereExtended
+HKCR,Drive\Shell\CommandPromptHereExtended
+
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
+
 HKCR,Directory\Shell\Git_Shell
 HKCR,Directory\Background\Shell\Git_Shell
 HKCR,Drive\Shell\Git_Shell
@@ -250,6 +258,14 @@ HKCR,Drive\Shell\StartPowerShellHere
 HKCR,Directory\Shell\StartPowerShellHereAdministrator
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
 HKCR,Drive\Shell\StartPowerShellHereAdministrator
+
+HKCR,Directory\Shell\StartPowerShellHereExtended
+HKCR,Directory\Background\Shell\StartPowerShellHereExtended
+HKCR,Drive\Shell\StartPowerShellHereExtended
+
+HKCR,Directory\Shell\StartPowerShellHereAdministratorExtended
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministratorExtended
+HKCR,Drive\Shell\StartPowerShellHereAdministratorExtended
 
 HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
 
@@ -278,7 +294,7 @@ HKCR,Drive\Shell\cmd
 
 [Strings]
 DisplayName="Context Menu Tools"
-DisplayVersion="1.0"
+DisplayVersion="1.1"
 cmdContextText="&Command Prompt Here"
 cmdAdminContextText="&Command Prompt Here (Administrator)"
 PowerShellContextText="Start &PowerShell Here"
