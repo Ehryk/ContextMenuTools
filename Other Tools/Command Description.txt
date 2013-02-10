@@ -1,0 +1,16 @@
+
+Command Prompt: 
+
+"cmd /s /k ""VER && TITLE %%%CD%%%"" "
+
+Command Prompt Administrator: 
+
+"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE %%%CD%%%"" "
+
+PowerShell: 
+
+"PowerShell.exe -NoExit -Command ""$global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
+
+PowerShell Administrator: 
+
+"cmd /c Elevate.cmd PowerShell.exe -NoExit -Command ""if (!$host.ui.rawui.windowtitle.Contains('Administrator')) { $host.ui.rawui.windowtitle = 'Administrator: ' + $host.ui.rawui.windowtitle }; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('Administrator') -nonewline -foregroundcolor Red; Write-Host (' ' + $(get-location) + '>') -nonewline; return ' '; };"" "
