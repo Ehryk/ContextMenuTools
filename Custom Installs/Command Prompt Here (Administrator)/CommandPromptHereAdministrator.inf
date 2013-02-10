@@ -52,9 +52,9 @@ CommandPromptHereAdministratorExtended.inf
 
 [CommandPromptHereAdministratorExtended.Clean]
 HKLM,%UDHERE%Extended
-HKCR,Directory\Shell\CommandPromptHereAdministrator
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
-HKCR,Drive\Shell\CommandPromptHereAdministrator
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
 
 [CommandPromptHereAdministrator.AddReg]
 HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
@@ -65,17 +65,17 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
 HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
-HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
-HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER """
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE Command Prompt: %%%CD%%%"" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%ContextText%"
 HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
-HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 [CommandPromptHereAdministrator.DelReg]
 HKLM,%UDHERE%
@@ -87,17 +87,17 @@ HKCR,Drive\Shell\CommandPromptHereAdministrator
 HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Shell\cmd,Extended,,""
 HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Background\Shell\cmd,Extended,,""
 HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Background\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Drive\Shell\cmd,Extended,,""
 HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Drive\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 [cmd.DelReg]
 HKCR,Directory\Shell\cmd

@@ -56,22 +56,22 @@ HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\cmd.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereExtended.inf"
 
 ;Adds entry when right-clicking a Directory
-HKCR,Directory\Shell\CommandPromptHere,,,"%ContextText%"
-HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
-HKCR,Directory\Shell\CommandPromptHere,Extended,,""
-HKCR,Directory\Shell\CommandPromptHere\command,,,"""%SystemRoot%\System32\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHereExtended,,,"%ContextText%"
+HKCR,Directory\Shell\CommandPromptHereExtended,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
+HKCR,Directory\Shell\CommandPromptHereExtended,Extended,,""
+HKCR,Directory\Shell\CommandPromptHereExtended\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 ;Adds entry when right-clicking "empty space" in a directory
-HKCR,Directory\Background\Shell\CommandPromptHere,,,"%ContextText%"
-HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
-HKCR,Directory\Background\Shell\CommandPromptHere,Extended,,""
-HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"""%SystemRoot%\System32\cmd.exe"" /s /k ""VER"""
+HKCR,Directory\Background\Shell\CommandPromptHereExtended,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHereExtended,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
+HKCR,Directory\Background\Shell\CommandPromptHereExtended,Extended,,""
+HKCR,Directory\Background\Shell\CommandPromptHereExtended\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %%%CD%%%"" "
 
 ;Adds entry when right-clicking a Drive
-HKCR,Drive\Shell\CommandPromptHere,,,"%ContextText%"
-HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
-HKCR,Drive\Shell\CommandPromptHere,Extended,,""
-HKCR,Drive\Shell\CommandPromptHere\command,,,"""%SystemRoot%\System32\cmd.exe"" /s /k ""VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHereExtended,,,"%ContextText%"
+HKCR,Drive\Shell\CommandPromptHereExtended,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
+HKCR,Drive\Shell\CommandPromptHereExtended,Extended,,""
+HKCR,Drive\Shell\CommandPromptHereExtended\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 [CommandPromptHereExtended.DelReg]
 HKLM,%UDHERE%
@@ -83,17 +83,17 @@ HKCR,Drive\Shell\CommandPromptHere
 HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Shell\cmd,Extended,,""
 HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Background\Shell\cmd,Extended,,""
 HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Background\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Drive\Shell\cmd,Extended,,""
 HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Drive\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 [cmd.DelReg]
 HKCR,Directory\Shell\cmd

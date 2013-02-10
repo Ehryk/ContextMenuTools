@@ -63,44 +63,44 @@ HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\cmdAdmin.ico"
 HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CommandPromptHereAdministratorExtended.inf"
 
 ;Adds entry when right-clicking a Directory
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,,,"%cmdAdminContextText%"
 HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
 HKCR,Directory\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Directory\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 ;Adds entry when right-clicking "empty space" in a directory
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,,,"%cmdAdminContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER """
+HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE Command Prompt: %%%CD%%%"" "
 
 ;Adds entry when right-clicking a Drive
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,,,"%ContextText%"
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,,,"%cmdAdminContextText%"
 HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
 HKCR,Drive\Shell\CommandPromptHereAdministratorExtended,Extended,,""
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd ""%SystemRoot%\System32\cmd.exe"" /s /k ""COLOR 0C && VER && PUSHD ""%1"""""
+HKCR,Drive\Shell\CommandPromptHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 [CommandPromptHereAdministratorExtended.DelReg]
 HKLM,%UDHERE%
-HKCR,Directory\Shell\CommandPromptHereAdministratorExtended
-HKCR,Directory\Background\Shell\CommandPromptHereAdministratorExtended
-HKCR,Drive\Shell\CommandPromptHereAdministratorExtended
+HKCR,Directory\Shell\CommandPromptHereAdministrator
+HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
+HKCR,Drive\Shell\CommandPromptHereAdministrator
 
 [cmd.AddReg]
 HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Shell\cmd,Extended,,""
 HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Background\Shell\cmd,Extended,,""
 HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Background\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Drive\Shell\cmd,Extended,,""
 HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Drive\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 [cmd.DelReg]
 HKCR,Directory\Shell\cmd
