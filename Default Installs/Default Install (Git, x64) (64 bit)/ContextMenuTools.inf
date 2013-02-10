@@ -128,7 +128,7 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entries when right-clicking a Directory (Using %1)
 HKCR,Directory\Shell\CommandPromptHere,,,"%cmdContextText%"
 HKCR,Directory\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
-HKCR,Directory\Shell\CommandPromptHere\command,,,"cmd /s /k ""VER && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
+HKCR,Directory\Shell\CommandPromptHere\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 HKCR,Directory\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Directory\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
@@ -136,11 +136,11 @@ HKCR,Directory\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 HKCR,Directory\Shell\Git_Shell,,,"%GitContextText%"
-HKCR,Directory\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
+HKCR,Directory\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"""
 HKCR,Directory\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
 
 HKCR,Directory\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
-HKCR,Directory\Shell\StartPowerShellHere\command,,,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
+HKCR,Directory\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
 
 HKCR,Directory\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
@@ -151,7 +151,7 @@ HKCR,Directory\Shell\StartPowerShellHereAdministrator,Extended,,""
 ;Adds entries when right-clicking "empty space" in a directory (Using %%%CD%%%)
 HKCR,Directory\Background\Shell\CommandPromptHere,,,"%cmdContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
-HKCR,Directory\Background\Shell\CommandPromptHere\command,,,"cmd /s /k ""VER && TITLE Command Prompt: %%%CD%%%"" "
+HKCR,Directory\Background\Shell\CommandPromptHere\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %%%CD%%%"" "
 
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
@@ -159,11 +159,11 @@ HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && @cd %%%CD%%% && TITLE Command Prompt: %%%CD%%%"" "
 
 HKCR,Directory\Background\Shell\Git_Shell,,,"%GitContextText%"
-HKCR,Directory\Background\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"""
+HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"""
 HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
 
 HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
-HKCR,Directory\Background\Shell\StartPowerShellHere\command,,,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
 HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
 
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
@@ -174,7 +174,7 @@ HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Extended,,""
 ;Adds entries when right-clicking a Drive (Using %1)
 HKCR,Drive\Shell\CommandPromptHere,,,"%cmdContextText%"
 HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
-HKCR,Drive\Shell\CommandPromptHere\command,,,"cmd /s /k ""VER && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
+HKCR,Drive\Shell\CommandPromptHere\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 HKCR,Drive\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Drive\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
@@ -182,11 +182,11 @@ HKCR,Drive\Shell\CommandPromptHereAdministrator,Extended,,""
 HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elevate.cmd cmd /s /k ""ECHO --- Administrator Command Prompt --- && VER && COLOR 0C && TITLE Command Prompt: %1 && PUSHD ""%1"" "" "
 
 HKCR,Drive\Shell\Git_Shell,,,"%GitContextText%"
-HKCR,Drive\Shell\Git_Shell\command,,,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"" "
+HKCR,Drive\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files (x86)\Git\Git Bash.vbs"" ""%1"" "
 HKCR,Drive\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
 
 HKCR,Drive\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
-HKCR,Drive\Shell\StartPowerShellHere\command,,,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
+HKCR,Drive\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
 HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
 
 HKCR,Drive\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
@@ -244,17 +244,6 @@ HKCU,Console\%SystemRoot%_system32_cmd.exe,HistoryNoDup,0x00010001,0x00000000
 
 [ContextMenuTools.DelReg]
 HKLM,%UDHERE%
-HKCR,Directory\Shell\StartPowerShellHere
-HKCR,Directory\Background\Shell\StartPowerShellHere
-HKCR,Drive\Shell\StartPowerShellHere
-
-HKCR,Directory\Shell\StartPowerShellHereAdministrator
-HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
-HKCR,Drive\Shell\StartPowerShellHereAdministrator
-
-HKCR,Directory\Shell\Git_Shell
-HKCR,Directory\Background\Shell\Git_Shell
-HKCR,Drive\Shell\Git_Shell
 
 HKCR,Directory\Shell\CommandPromptHere
 HKCR,Directory\Background\Shell\CommandPromptHere
@@ -264,6 +253,18 @@ HKCR,Directory\Shell\CommandPromptHereAdministrator
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator
 HKCR,Drive\Shell\CommandPromptHereAdministrator
 
+HKCR,Directory\Shell\Git_Shell
+HKCR,Directory\Background\Shell\Git_Shell
+HKCR,Drive\Shell\Git_Shell
+
+HKCR,Directory\Shell\StartPowerShellHere
+HKCR,Directory\Background\Shell\StartPowerShellHere
+HKCR,Drive\Shell\StartPowerShellHere
+
+HKCR,Directory\Shell\StartPowerShellHereAdministrator
+HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator
+HKCR,Drive\Shell\StartPowerShellHereAdministrator
+
 HKCU,Console\%SystemRoot%_system32_WindowsPowerShell_v1.0_powershell.exe
 
 HKCU,Console\%SystemRoot%_system32_cmd.exe
@@ -272,17 +273,17 @@ HKCU,Console\%SystemRoot%_system32_cmd.exe
 HKCR,Directory\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Shell\cmd,Extended,,""
 HKCR,Directory\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Directory\Background\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Directory\Background\Shell\cmd,Extended,,""
 HKCR,Directory\Background\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Directory\Background\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Directory\Background\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 HKCR,Drive\Shell\cmd,,,"@shell32.dll,-8506"
 HKCR,Drive\Shell\cmd,Extended,,""
 HKCR,Drive\Shell\cmd,NoWorkingDirectory,,""
-HKCR,Drive\Shell\cmd\command,,,"cmd.exe /s /k pushd ""%V"""
+HKCR,Drive\Shell\cmd\command,,0x00020000,"cmd.exe /s /k pushd ""%V"""
 
 [cmd.DelReg]
 HKCR,Directory\Shell\cmd
