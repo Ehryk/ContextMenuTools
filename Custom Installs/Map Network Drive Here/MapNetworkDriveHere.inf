@@ -1,0 +1,80 @@
+[version]
+Signature="$Windows NT$"
+
+[MapNetworkDriveHereInstall]
+CopyFiles = MapNetworkDriveHere.Files.Inf
+CopyFiles = MapNetworkDriveHere.Files.Icon
+DelFiles  = MapNetworkDriveHereExtended.Files.Clean
+DelReg    = MapNetworkDriveHereExtended.Clean
+AddReg    = MapNetworkDriveHere.AddReg
+
+[DefaultInstall]
+CopyFiles = MapNetworkDriveHere.Files.Inf
+CopyFiles = MapNetworkDriveHere.Files.Icon
+DelFiles  = MapNetworkDriveHereExtended.Files.Clean
+DelReg    = MapNetworkDriveHereExtended.Clean
+AddReg    = MapNetworkDriveHere.AddReg
+
+[DefaultUnInstall]
+DelFiles  = MapNetworkDriveHere.Files.Inf
+DelReg    = MapNetworkDriveHere.DelReg
+
+[SourceDisksNames]
+55="Map Drive Here","",1
+
+[SourceDisksFiles]
+MapNetworkDriveHere.INF=55
+netdrive.ico=55
+
+[DestinationDirs]
+MapNetworkDriveHere.Files.Inf   = 17
+MapNetworkDriveHereExtended.Files.Clean = 17
+MapNetworkDriveHere.Files.Icon  = 11
+
+[MapNetworkDriveHere.Files.Inf]
+MapNetworkDriveHere.INF
+
+[MapNetworkDriveHere.Files.Icon]
+netdrive.ico
+
+[MapNetworkDriveHereExtended.Files.Clean]
+MapNetworkDriveHereExtended.inf
+
+[MapNetworkDriveHereExtended.Clean]
+HKLM,%UDHERE%Extended
+HKCR,Directory\Shell\MapNetworkDriveHere
+HKCR,Directory\Background\Shell\MapNetworkDriveHere
+HKCR,Drive\Shell\MapNetworkDriveHere
+
+[MapNetworkDriveHere.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\netdrive.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\MapNetworkDriveHere.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\MapNetworkDriveHere,,,"%ContextText%"
+HKCR,Directory\Shell\MapNetworkDriveHere,Icon,0x00020000,"%SystemRoot%\System32\netdrive.ico"
+HKCR,Directory\Shell\MapNetworkDriveHere\command,,0x00020000,"C:\Windows\System32\cmd /k echo net use * ""%1"" "
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\MapNetworkDriveHere,,,"%ContextText%"
+HKCR,Directory\Background\Shell\MapNetworkDriveHere,Icon,0x00020000,"%SystemRoot%\System32\netdrive.ico"
+HKCR,Directory\Background\Shell\MapNetworkDriveHere\command,,0x00020000,"C:\Windows\System32\cmd /k echo net use * ""%%%CD%%%"" "
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\MapNetworkDriveHere,,,"%RemoveText%"
+HKCR,Drive\Shell\MapNetworkDriveHere,Icon,0x00020000,"%SystemRoot%\System32\netdrive.ico"
+HKCR,Drive\Shell\MapNetworkDriveHere\command,,0x00020000,"cmd /k echo net use ""%1"" /DELETE"
+
+[MapNetworkDriveHere.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\MapNetworkDriveHere
+HKCR,Directory\Background\Shell\MapNetworkDriveHere
+
+[Strings]
+DisplayName="Context Menu: Map Network Drive Here"
+DisplayVersion="1.1"
+ContextText="Map &Network Drive Here"
+RemoveText="Remove Mapped &Network Drive"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\MapNetworkDriveHere"
