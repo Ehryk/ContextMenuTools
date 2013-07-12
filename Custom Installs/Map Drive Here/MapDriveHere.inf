@@ -1,0 +1,80 @@
+[version]
+Signature="$Windows NT$"
+
+[MapDriveHereInstall]
+CopyFiles = MapDriveHere.Files.Inf
+CopyFiles = MapDriveHere.Files.Icon
+DelFiles  = MapDriveHereExtended.Files.Clean
+DelReg    = MapDriveHereExtended.Clean
+AddReg    = MapDriveHere.AddReg
+
+[DefaultInstall]
+CopyFiles = MapDriveHere.Files.Inf
+CopyFiles = MapDriveHere.Files.Icon
+DelFiles  = MapDriveHereExtended.Files.Clean
+DelReg    = MapDriveHereExtended.Clean
+AddReg    = MapDriveHere.AddReg
+
+[DefaultUnInstall]
+DelFiles  = MapDriveHere.Files.Inf
+DelReg    = MapDriveHere.DelReg
+
+[SourceDisksNames]
+55="Map Drive Here","",1
+
+[SourceDisksFiles]
+MapDriveHere.INF=55
+mapdrive.ico=55
+
+[DestinationDirs]
+MapDriveHere.Files.Inf   = 17
+MapDriveHereExtended.Files.Clean = 17
+MapDriveHere.Files.Icon  = 11
+
+[MapDriveHere.Files.Inf]
+MapDriveHere.INF
+
+[MapDriveHere.Files.Icon]
+mapdrive.ico
+
+[MapDriveHereExtended.Files.Clean]
+MapDriveHereExtended.inf
+
+[MapDriveHereExtended.Clean]
+HKLM,%UDHERE%Extended
+HKCR,Directory\Shell\MapDriveHere
+HKCR,Directory\Background\Shell\MapDriveHere
+HKCR,Drive\Shell\MapDriveHere
+
+[MapDriveHere.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\mapdrive.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\MapDriveHere.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\MapDriveHere,,,"%ContextText%"
+HKCR,Directory\Shell\MapDriveHere,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Directory\Shell\MapDriveHere\command,,0x00020000,"cmd /c subst K: ""%1"" "
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\MapDriveHere,,,"%ContextText%"
+HKCR,Directory\Background\Shell\MapDriveHere,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Directory\Background\Shell\MapDriveHere\command,,0x00020000,"cmd /c subst K: ""%%%CD%%%"" "
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\CommandPromptHere,,,"%RemoveText%"
+HKCR,Drive\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Drive\Shell\CommandPromptHere\command,,0x00020000,"cmd /c subst K: /D"
+
+[MapDriveHere.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\MapDriveHere
+HKCR,Directory\Background\Shell\MapDriveHere
+
+[Strings]
+DisplayName="Context Menu: Map Drive Here"
+DisplayVersion="1.1"
+ContextText="&Map Drive Here"
+RemoveText="&Remove Mapped Drive"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\MapDriveHere"
