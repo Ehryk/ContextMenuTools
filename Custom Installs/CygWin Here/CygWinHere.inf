@@ -1,0 +1,63 @@
+[version]
+Signature="$Windows NT$"
+
+[CygWinHereInstall]
+CopyFiles = CygWinHere.Files.Inf
+CopyFiles = CygWinHere.Files.Icon
+AddReg    = CygWinHere.AddReg
+
+[DefaultInstall]
+CopyFiles = CygWinHere.Files.Inf
+CopyFiles = CygWinHere.Files.Icon
+AddReg    = CygWinHere.AddReg
+
+[DefaultUnInstall]
+DelFiles  = CygWinHere.Files.Inf
+DelReg    = CygWinHere.DelReg
+
+[SourceDisksNames]
+55="Start CygWin Here","",1
+
+[SourceDisksFiles]
+CygWinHere.INF=55
+CygWin.ico=55
+
+[DestinationDirs]
+CygWinHere.Files.Inf = 17
+CygWinHere.Files.Icon = 11
+
+[CygWinHere.Files.Inf]
+CygWinHere.INF
+
+[CygWinHere.Files.Icon]
+CygWin.ico
+
+[CygWinHere.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\CygWin.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CygWinHere.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\CygWinHere,,,"%ContextText%"
+HKCR,Directory\Shell\CygWinHere,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
+HKCR,Directory\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"""
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\CygWinHere,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CygWinHere,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
+HKCR,Directory\Background\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"""
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\CygWinHere,,,"%ContextText%"
+HKCR,Drive\Shell\CygWinHere,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
+HKCR,Drive\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"" "
+
+[CygWinHere.DelReg]
+HKLM,%UDHERE%
+
+[Strings]
+DisplayName="Context Menu: CygWin Here"
+DisplayVersion="1.1"
+ContextText="Start &CygWin Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CygWinHere"

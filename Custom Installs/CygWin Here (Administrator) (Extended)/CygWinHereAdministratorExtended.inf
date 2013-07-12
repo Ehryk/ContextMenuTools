@@ -1,0 +1,66 @@
+[version]
+Signature="$Windows NT$"
+
+[CygWinHereInstall]
+CopyFiles = CygWinHereAdministratorExtended.Files.Inf
+CopyFiles = CygWinHereAdministratorExtended.Files.Icon
+AddReg    = CygWinHereAdministratorExtended.AddReg
+
+[DefaultInstall]
+CopyFiles = CygWinHereAdministratorExtended.Files.Inf
+CopyFiles = CygWinHereAdministratorExtended.Files.Icon
+AddReg    = CygWinHereAdministratorExtended.AddReg
+
+[DefaultUnInstall]
+DelFiles  = CygWinHereAdministratorExtended.Files.Inf
+DelReg    = CygWinHereAdministratorExtended.DelReg
+
+[SourceDisksNames]
+55="Start CygWin Here (Administrator)","",1
+
+[SourceDisksFiles]
+CygWinHereAdministratorExtended.INF=55
+CygWin.ico=55
+
+[DestinationDirs]
+CygWinHereAdministratorExtended.Files.Inf = 17
+CygWinHereAdministratorExtended.Files.Icon = 11
+
+[CygWinHereAdministratorExtended.Files.Inf]
+CygWinHereAdministratorExtended.INF
+
+[CygWinHereAdministratorExtended.Files.Icon]
+CygWin.ico
+
+[CygWinHereAdministratorExtended.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%11%\CygWin.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\CygWinHereAdministratorExtended.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\CygWinHereAdministratorExtended,,,"%ContextText%"
+HKCR,Directory\Shell\CygWinHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
+HKCR,Directory\Shell\CygWinHereAdministratorExtended,Extended,,""
+HKCR,Directory\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"""
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,,,"%ContextText%"
+HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
+HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,Extended,,""
+HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"""
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\CygWinHereAdministratorExtended,,,"%ContextText%"
+HKCR,Drive\Shell\CygWinHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
+HKCR,Drive\Shell\CygWinHereAdministratorExtended,Extended,,""
+HKCR,Drive\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"" "
+
+[CygWinHereAdministratorExtended.DelReg]
+HKLM,%UDHERE%
+
+[Strings]
+DisplayName="Context Menu: CygWin Here (Administrator) (Extended)"
+DisplayVersion="1.1"
+ContextText="Start &CygWin Here (Administrator)"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CygWinHereAdministratorExtended"
