@@ -1,0 +1,81 @@
+[version]
+Signature="$Windows NT$"
+
+[MapLocalDriveHerePInstall]
+CopyFiles = MapLocalDriveHereP.Files.Inf
+CopyFiles = MapLocalDriveHereP.Files.Icon
+DelFiles  = MapLocalDriveHerePExtended.Files.Clean
+DelReg    = MapLocalDriveHerePExtended.Clean
+AddReg    = MapLocalDriveHereP.AddReg
+
+[DefaultInstall]
+CopyFiles = MapLocalDriveHereP.Files.Inf
+CopyFiles = MapLocalDriveHereP.Files.Icon
+DelFiles  = MapLocalDriveHerePExtended.Files.Clean
+DelReg    = MapLocalDriveHerePExtended.Clean
+AddReg    = MapLocalDriveHereP.AddReg
+
+[DefaultUnInstall]
+DelFiles  = MapLocalDriveHereP.Files.Inf
+DelReg    = MapLocalDriveHereP.DelReg
+
+[SourceDisksNames]
+55="Map Drive Here","",1
+
+[SourceDisksFiles]
+MapLocalDriveHereP.INF=55
+mapdrive.ico=55
+
+[DestinationDirs]
+MapLocalDriveHereP.Files.Inf   = 17
+MapLocalDriveHerePExtended.Files.Clean = 17
+MapLocalDriveHereP.Files.Icon  = 11
+
+[MapLocalDriveHereP.Files.Inf]
+MapLocalDriveHereP.INF
+
+[MapLocalDriveHereP.Files.Icon]
+mapdrive.ico
+
+[MapLocalDriveHerePExtended.Files.Clean]
+MapLocalDriveHerePExtended.inf
+
+[MapLocalDriveHerePExtended.Clean]
+HKLM,%UDHERE%Extended
+HKCR,Directory\Shell\MapLocalDriveHereP
+HKCR,Directory\Background\Shell\MapLocalDriveHereP
+HKCR,Drive\Shell\MapLocalDriveHereP
+
+[MapLocalDriveHereP.AddReg]
+HKLM,%UDHERE%,DisplayName,,"%DisplayName%"
+HKLM,%UDHERE%,DisplayVersion,,"%DisplayVersion%"
+HKLM,%UDHERE%,DisplayIcon,,"%SystemRoot%\System32\mapdrive.ico"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\MapLocalDriveHereP.inf"
+
+;Adds entry when right-clicking a Directory
+HKCR,Directory\Shell\MapLocalDriveHereP,,,"%ContextText%"
+HKCR,Directory\Shell\MapLocalDriveHereP,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Directory\Shell\MapLocalDriveHereP\command,,0x00020000,"cmd /c subst P: /D & subst P: ""%1"" "
+
+;Adds entry when right-clicking "empty space" in a directory
+HKCR,Directory\Background\Shell\MapLocalDriveHereP,,,"%ContextText%"
+HKCR,Directory\Background\Shell\MapLocalDriveHereP,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Directory\Background\Shell\MapLocalDriveHereP\command,,0x00020000,"cmd /c subst P: /D & subst P: ""%%%CD%%%"" "
+
+;Adds entry when right-clicking a Drive
+HKCR,Drive\Shell\MapLocalDriveHereP,,,"%RemoveText%"
+HKCR,Drive\Shell\MapLocalDriveHereP,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Drive\Shell\MapLocalDriveHereP\command,,0x00020000,"cmd /c subst P: /D"
+
+[MapLocalDriveHereP.DelReg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\MapLocalDriveHereP
+HKCR,Directory\Background\Shell\MapLocalDriveHereP
+HKCR,Drive\Shell\MapLocalDriveHereP
+
+[Strings]
+DisplayName="Context Menu: Map Local Drive Here: P"
+DisplayVersion="1.1"
+ContextText="Map &Local Drive Here: P"
+RemoveText="Remove Mapped &Local Drive: P"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\MapLocalDriveHereP"
