@@ -61,17 +61,17 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\MapLocalDriveHere,,,"%ContextText%"
 HKCR,Directory\Shell\MapLocalDriveHere,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
-HKCR,Directory\Shell\MapLocalDriveHere\command,,0x00020000,"cmd /c mapdrive.bat ""%1"" "
+HKCR,Directory\Shell\MapLocalDriveHere\command,,0x00020000,"cmd /c mapdrive.bat ""%1"" /P"
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\MapLocalDriveHere,,,"%ContextText%"
 HKCR,Directory\Background\Shell\MapLocalDriveHere,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
-HKCR,Directory\Background\Shell\MapLocalDriveHere\command,,0x00020000,"cmd /c mapdrive.bat ""%%%CD%%%"""
+HKCR,Directory\Background\Shell\MapLocalDriveHere\command,,0x00020000,"cmd /c mapdrive.bat ""%%%CD%%%"" /P"
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\MapLocalDriveHere,,,"%RemoveText%"
 HKCR,Drive\Shell\MapLocalDriveHere,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
-HKCR,Drive\Shell\MapLocalDriveHere\command,,0x00020000,"cmd /c mapdrive.bat ""%1"" /D"
+HKCR,Drive\Shell\MapLocalDriveHere\command,,0x00020000,"cmd /c mapdrive.bat ""%1"" /D /P"
 
 [MapLocalDriveHere.DelReg]
 HKLM,%UDHERE%
