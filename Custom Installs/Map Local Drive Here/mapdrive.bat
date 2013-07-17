@@ -1,21 +1,27 @@
 
 @echo off
 
+SET VERBOSE=
+IF /I "%~1"=="/V" SET VERBOSE=T
+IF /I "%~2"=="/V" SET VERBOSE=T
+IF /I "%~3"=="/V" SET VERBOSE=T
+
 ECHO.
 ECHO MapDrive v1.1, Eric Menze 2013
 ECHO ==============================
-REM ECHO Parameter 1: %1
-REM ECHO Parameter 2: %2
-REM ECHO Parameter 3: %3
+IF DEFINED VERBOSE ECHO Parameter 1: %1
+IF DEFINED VERBOSE ECHO Parameter 2: %2
+IF DEFINED VERBOSE ECHO Parameter 3: %3
 ECHO.
 
 IF %1.==. GOTO Help
-IF /I "%1"=="/H" GOTO Help
-IF /I "%1"=="/?" GOTO Help
-IF /I "%1"=="/L" GOTO List
-IF /I "%1"=="/F" GOTO Free
+IF /I "%~1"=="/H" GOTO Help
+IF /I "%~1"=="/?" GOTO Help
+IF /I "%~1"=="/V" GOTO Help
+IF /I "%~1"=="/L" GOTO List
+IF /I "%~1"=="/F" GOTO Free
 IF %2.==. GOTO Map
-IF /I "%2"=="/D" GOTO Disconnect
+IF /I "%~2"=="/D" GOTO Disconnect
 IF EXIST %1 IF EXIST %2 GOTO Replace
 GOTO Map
 
@@ -32,6 +38,7 @@ ECHO mapdrive /F                   -  Displays next availale drive letter
 ECHO mapdrive                      -  Displays this help (also /?, /H)
 ECHO SWITCHES:
 ECHO /P                            -  Pause after any of the above commands
+ECHO /V                            -  Verbose - Displays extra output
 GOTO Finish
 
 :List
@@ -48,8 +55,8 @@ GOTO Finish
 :Map
 ECHO Finding First Available Drive...
 
-REM Search All Drive Letters: for %%a in (Z Y X W V U T S R Q P O N M L K J I H G F E D C) do CD %%a: 1>> nul 2>&1 & if errorlevel 1 set freedrive=%%a:
-REM Stop at K: 
+REM IF DEFINED VERBOSE Searching All Drive Letters: for %%a in (Z Y X W V U T S R Q P O N M L K J I H G F E D C) do CD %%a: 1>> nul 2>&1 & if errorlevel 1 set freedrive=%%a:
+IF DEFINED VERBOSE Searching All Drive Letters, Stop at K: 
 for %%a in (Z Y X W V U T S R Q P O N M L K) do CD %%a: 1>> nul 2>&1 & if errorlevel 1 set freedrive=%%a:
 ECHO Found: %freedrive%
 
@@ -75,11 +82,11 @@ subst %~d1 /D
 GOTO Finish
 
 :Finish
-REM ECHO Finished.
+IF DEFINED VERBOSE ECHO Finished.
 
-IF /I "%1"=="/P" GOTO Wait
-IF /I "%2"=="/P" GOTO Wait
-IF /I "%3"=="/P" GOTO Wait
+IF /I "%~1"=="/P" GOTO Wait
+IF /I "%~2"=="/P" GOTO Wait
+IF /I "%~3"=="/P" GOTO Wait
 GOTO End
 
 :Wait
