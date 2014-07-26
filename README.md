@@ -1,10 +1,10 @@
 # Context Menu Tools
 
-Version: 1.2
-Author: Eric Menze
-Windows 8, Windows 7, Windows Vista, Windows XP
+ - Version: 1.2
+ - Author: Eric Menze
+ - Windows 8, Windows 7, Windows Vista, Windows XP
 
-These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have were written for Windows 8 / 7 / Vista, but will probably work in XP as well (although you may need to install PowerShell manually).  Setup explains the multitude of install options, or you can dive right in with the Default Install or SuperUser Install. 
+These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have were written for Windows 8 / 7 / Vista, but works in XP as well (you may need to install PowerShell manually).  Setup explains the multitude of install options, or you can dive right in with the Default Install or SuperUser Install. 
 
 ![Default Install Sections](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/DefaultInstall.png)
 
@@ -22,7 +22,7 @@ After using PowerShell and Git Bash a lot, I found it irritating to start in my 
 
 I used the basic structure of the .INF files to write my own, with custom icons and more features.  I alter the Administrator prompts to reflect the elevated commands, customize the PowerShell prompts, set default colors, and most importantly add the ability to right click anywhere in a directory or drive.
 
-### Default Installs
+### Default Install
 								  
 This should be your initial entry point: Start here. You can then modify the install at anytime by just installing a different one, no need to uninstall. To remove them, you can use the UninstallAll.exe or remove the entry in the Programs section of the Control Panel.
 
@@ -40,7 +40,7 @@ And the following to the Extended Context Menu (shift+right click):
  - Start Powershell Here - Shortcut Key: p, Runs PowerShell.
  - Start Powershell Here (Administrator) - Shortcut Key: p, Runs PowerShell as an Administrator.
 
-### SuperUser Installs
+### SuperUser Install
 
 Superuser Installs add all of the following options, including the Administrative options, to both the regular Context Menu (right click) and the Extended Context Menu (shift+right click):
 
@@ -52,7 +52,7 @@ Superuser Installs add all of the following options, including the Administrativ
  - Start Powershell Here - Shortcut Key: p, Runs PowerShell.
  - Start Powershell Here (Administrator) - Shortcut Key: p, Runs PowerShell as an Administrator.
 
-### Start PowerShell Here
+### PowerShell
 
 ##### Start PowerShell Here
  - Shortcut Key: p
@@ -84,7 +84,7 @@ When PowerShell is launched directly from the .exe, it does not have the custom 
 ##### KeepCommandWindowScrollable.inf
 When cmd.exe is launched directly from the .exe, it is not scrollable.  These values are saved with the cmd.lnk that is usually called.  These registry entries keep cmd.exe the way the link makes it, no matter what calls it.
 
-### Command Prompt Here
+### Command Prompts
 
 ##### Command Prompt Here
  - Shortcut Key: c
@@ -106,7 +106,7 @@ This adds "Command Prompt Here (Administrator)" to the extended context menu onl
 
 ![Administrator Command Prompt](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/AdministratorCommandPrompt.png)
 
-### Git Bash Here
+### Git Bash
 
 ##### Git Bash Here (x64)
  - Shortcut Key: g
@@ -116,21 +116,21 @@ This will add the "Git Bash Here" context menu entry with an icon to Directories
  - Shortcut Key: g
 This will add the "Git Bash Here" context menu entry with an icon to Directories, Drives, and Directory Backgrounds.  It will only work for the default install location for 32 bit machines (C:\Program Files\Git\Git Bash.vbs).
 
-### Start Cygwin Here
+### Cygwin
 
-##### Cygwin Here
+##### Start Cygwin Here
  - Shortcut Key: y
  This will add the "Start Cygwin Here" context menu entry with an icon to Directories, Drives, and Directory backgrounds. It will only work for the default install location (C:\Cygwin), however a quick edit of the .inf file before installation will let you customize the installation path.
 
-##### Cygwin Here (Extended)
+##### Start Cygwin Here (Extended)
  - Shortcut Key: y
 Same as Cygwin Here, but only in the extended context menu (shift + right click).
 
-##### Cygwin Here (Administrator)
+##### Start Cygwin Here (Administrator)
  - Shortcut Key: y
 This will add the "Start Cygwin Here (Administrator)" context menu entry with an icon to Directories, Drives, and Directory backgrounds. It will only work for the default install location (C:\Cygwin), however a quick edit of the .inf file before installation will let you customize the installation path.
 
-##### Cygwin Here (Administrator) (Extended)
+##### Start Cygwin Here (Administrator) (Extended)
  - Shortcut Key: y
 Same as Cygwin Here (Administrator), but only in the extended context menu (shift + right click).
 
