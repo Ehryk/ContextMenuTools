@@ -1,30 +1,32 @@
-                              /##########################\
-                              |### Context Menu Tools ###|
-                              \##########################/
+# Context Menu Tools
 
-                                     Version: 1.1
-                                  Author: Eric Menze
-                     Windows 8, Windows 7, Windows Vista, (Windows XP)
+Version: 1.2
+Author: Eric Menze
+Windows 8, Windows 7, Windows Vista, Windows XP
 
 These tools add functionality to your context menu.  They have easy uninstall entries in the Programs Control Panel option.  They have were written for Windows 8 / 7 / Vista, but will probably work in XP as well (although you may need to install PowerShell manually).  Setup explains the multitude of install options, or you can dive right in with the Default Install or SuperUser Install. 
+
+![Default Install Sections](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/DefaultInstall.png)
+
+###Installation
+
+You can use the Setup.hta, Default Install.exe, Superuser Install.exe, but the best way is to open the Default Installs folder, select the best matching option, open that subfolder, right click the .inf in that folder and choose 'Install'.
 
 **NOTE: The installs must sometimes be run as Administrator; right click the application and select "Run as Administrator" from the context menu if they menu entries don't appear.**
 
 If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other commands that would be helpful in the context menu.
 
-                                   ===================
-                                   ===> The Story <===
-                                   ===================
+### The Story
 
 After using PowerShell and Git Bash a lot, I found it irritating to start in my home directory each time I opened a new prompt.  Microsoft published their Elevation Power Toys, which would launch PowerShell and the command prompt from the context menus of drives and directories, but I found it lacking in a few features.  What I wanted most was to right click the backgrounds of directories and drives, Git support, and other nitpicky details.  This gave birth to this project.
 
 I used the basic structure of the .INF files to write my own, with custom icons and more features.  I alter the Administrator prompts to reflect the elevated commands, customize the PowerShell prompts, set default colors, and most importantly add the ability to right click anywhere in a directory or drive.
 
-								  ==========================
-								  ===> Default Installs <===
-								  ==========================
+### Default Installs
 								  
 This should be your initial entry point: Start here. You can then modify the install at anytime by just installing a different one, no need to uninstall. To remove them, you can use the UninstallAll.exe or remove the entry in the Programs section of the Control Panel.
+
+![Default Example](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/Default.png)
 
 Default Installs add the following to the regular Context Menu (right click):
 Command Prompt Here - Shortcut Key: c, Runs cmd.
@@ -38,20 +40,19 @@ Git Bash Here - Shortcut Key: g, Opens a Git Bash. Only added if Git is installe
 Start Powershell Here - Shortcut Key: p, Runs PowerShell.
 Start Powershell Here (Administrator) - Shortcut Key: p, Runs PowerShell as an Administrator.
 
-								  ============================
-								  ===> SuperUser Installs <===
-								  ============================
+### SuperUser Installs
 
-Default Installs add the following to both the regular Context Menu (right click) and the Extended Context Menu (shift+right click):
+Superuser Installs add all of the following options, including the Administrative options, to both the regular Context Menu (right click) and the Extended Context Menu (shift+right click):
+
+![SuperUser Example](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/SuperUser.png)
+
 Command Prompt Here - Shortcut Key: c, Runs cmd.
 Command Prompt Here (Administrator) - Shortcut Key: c, Runs cmd as an Administrator.
 Git Bash Here - Shortcut Key: g, Opens a Git Bash. Only added if Git is installed in the default location.
 Start Powershell Here - Shortcut Key: p, Runs PowerShell.
 Start Powershell Here (Administrator) - Shortcut Key: p, Runs PowerShell as an Administrator.
 
-                                  ====================
-                                  ===> PowerShell <===
-                                  ====================
+### Start PowerShell Here
 
 Start PowerShell Here
 Default Key: p
@@ -77,13 +78,13 @@ Keep PowerShell Blue.reg
 KeepPowerShellBlue.inf
 -When PowerShell is launched directly from the .exe, it does not have the custom blue colors and other options.  These values are saved with the PowerShell.lnk that is usually called.  These registry entries keep PowerShell the way the link makes it, no matter what calls it.
 
+![Keep PowerShell Blue](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/PowerShellDefault.png)
+
 Keep Command Window Scrollable.reg
 KeepCommandWindowScrollable.inf
 -When cmd.exe is launched directly from the .exe, it is not scrollable.  These values are saved with the cmd.lnk that is usually called.  These registry entries keep cmd.exe the way the link makes it, no matter what calls it.
 
-                                ========================
-                                ===> Command Prompt <===
-                                ========================
+### Command Prompt Here
 
 Command Prompt Here
 Default Key: c
@@ -101,9 +102,11 @@ Command Prompt Here (Administrator) (Extended)
 Default Key: c
 - This adds "Command Prompt Here (Administrator)" to the extended context menu only.  The foreground text is red to distinguish it from normal command prompts.
 
-                                   ==================
-                                   ===> Git Bash <===
-                                   ==================
+**Note: as an added feature, administrative command prompts are opened with red text as a reminder of their additional access level.**
+
+![Administrator Command Prompt](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/AdministratorCommandPrompt.png)
+
+### Git Bash Here
 
 Git Bash Here (x64)
 Default Key: g
@@ -113,10 +116,8 @@ Git Bash Here (x86)
 Default Key: g
 - This will add the "Git Bash Here" context menu entry with an icon to Directories, Drives, and Directory Backgrounds.  It will only work for the default install location for 32 bit machines (C:\Program Files\Git\Git Bash.vbs).
 
-                                 ======================
-                                 ===> Open With... <===
-                                 ======================
+### Open With...
 
 Always Show Open With
 Default Key: e
-- Windows likes to pick and choose based on the file type when to give you the Open With... context menu entry.  This forces the entry to be present no matter what file type is right clicked, however this causes a dual "Open With..." entry in situations where windows would normally show it.
+- Windows likes to pick and choose based on the file type when to give you the Open With... context menu entry.  This forces the entry to be present no matter what file type is right clicked, however this causes a dual "Open With..." entry in situations where windows would normally show it, and isn't installed by default.
