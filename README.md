@@ -74,6 +74,9 @@ Superuser Installs add all of the following options, including the Administrativ
 
 ![Administrator Command Prompt](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/AdministratorCommandPrompt.png)
 
+##### Keep Command Window Scrollable.reg / KeepCommandWindowScrollable.inf
+ - When cmd.exe is launched directly from the .exe, it is not scrollable.  These values are saved with the cmd.lnk that is usually called.  These registry entries keep cmd.exe the way the link makes it, no matter what calls it.
+
 ### PowerShell
 
 ##### Start PowerShell Here
@@ -100,9 +103,6 @@ Superuser Installs add all of the following options, including the Administrativ
  - When PowerShell is launched directly from the .exe, it does not have the custom blue colors and other options.  These values are saved with the PowerShell.lnk that is usually called.  These registry entries keep PowerShell the way the link makes it, no matter what calls it.
 
 ![Keep PowerShell Blue](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/PowerShellDefault.png)
-
-##### Keep Command Window Scrollable.reg / KeepCommandWindowScrollable.inf
- - When cmd.exe is launched directly from the .exe, it is not scrollable.  These values are saved with the cmd.lnk that is usually called.  These registry entries keep cmd.exe the way the link makes it, no matter what calls it.
 
 ### Git Bash
 
