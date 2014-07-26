@@ -40,9 +40,9 @@ Sub DisplayUsage
                  "" & vbCrLf & _
                  "Sample usage:" & vbCrLf & _
                  "" & vbCrLf & _
-                 "    elevate notepad ""C:\Windows\win.ini""" & vbCrLf & _
+                 "    elevate notepad ""C:\Windows\win.ini"" " & vbCrLf & _
                  "" & vbCrLf & _
-                 "    elevate cmd /k cd ""C:\Program Files""" & vbCrLf & _
+                 "    elevate cmd /k cd ""C:\Program Files"" " & vbCrLf & _
                  "" & vbCrLf & _
                  "    elevate powershell -NoExit -Command Set-Location 'C:\Windows'" & vbCrLf & _
                  "" & vbCrLf & _
