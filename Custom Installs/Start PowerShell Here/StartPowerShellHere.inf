@@ -55,17 +55,17 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\StartPowerShellHere,,,"%ContextText%"
 HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Directory\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
+HKCR,Directory\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%ContextText%"
 HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; """
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\StartPowerShellHere,,,"%ContextText%"
 HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Drive\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
+HKCR,Drive\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
 
 [StartPowerShellHere.DelReg]
 HKLM,%UDHERE%
@@ -75,6 +75,6 @@ HKCR,Drive\Shell\StartPowerShellHere
 
 [Strings]
 DisplayName="Context Menu: Start PowerShell Here"
-DisplayVersion="1.1"
+DisplayVersion="1.2"
 ContextText="Start &PowerShell Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\StartPowerShellHere"

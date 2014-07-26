@@ -55,17 +55,20 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\MapNetworkDriveHere,,,"%ContextText%"
 HKCR,Directory\Shell\MapNetworkDriveHere,Icon,0x00020000,"%SystemRoot%\System32\netdrive.ico"
-HKCR,Directory\Shell\MapNetworkDriveHere\command,,0x00020000,"C:\Windows\System32\cmd /k echo net use * ""%1"" "
+HKCR,Directory\Shell\MapNetworkDriveHere,NoWorkingDirectory,,""
+HKCR,Directory\Shell\MapNetworkDriveHere\command,,0x00020000,"net use * ""%V"" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\MapNetworkDriveHere,,,"%ContextText%"
 HKCR,Directory\Background\Shell\MapNetworkDriveHere,Icon,0x00020000,"%SystemRoot%\System32\netdrive.ico"
-HKCR,Directory\Background\Shell\MapNetworkDriveHere\command,,0x00020000,"C:\Windows\System32\cmd /k echo net use * ""%%%CD%%%"" "
+HKCR,Directory\Background\Shell\MapNetworkDriveHere,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\MapNetworkDriveHere\command,,0x00020000,"net use * ""%V"" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\MapNetworkDriveHere,,,"%RemoveText%"
 HKCR,Drive\Shell\MapNetworkDriveHere,Icon,0x00020000,"%SystemRoot%\System32\netdrive.ico"
-HKCR,Drive\Shell\MapNetworkDriveHere\command,,0x00020000,"cmd /k echo net use ""%1"" /DELETE"
+HKCR,Drive\Shell\MapNetworkDriveHere,NoWorkingDirectory,,""
+HKCR,Drive\Shell\MapNetworkDriveHere\command,,0x00020000,"net use ""%V"" /DELETE"
 
 [MapNetworkDriveHere.DelReg]
 HKLM,%UDHERE%
@@ -74,7 +77,7 @@ HKCR,Directory\Background\Shell\MapNetworkDriveHere
 
 [Strings]
 DisplayName="Context Menu: Map Network Drive Here"
-DisplayVersion="1.1"
+DisplayVersion="1.2"
 ContextText="Map &Network Drive Here"
 RemoveText="Remove Mapped &Network Drive"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\MapNetworkDriveHere"

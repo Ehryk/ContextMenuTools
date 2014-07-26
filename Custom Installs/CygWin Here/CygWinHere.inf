@@ -41,23 +41,23 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\CygWinHere,,,"%ContextText%"
 HKCR,Directory\Shell\CygWinHere,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
-HKCR,Directory\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"""
+HKCR,Directory\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CygWinHere,,,"%ContextText%"
 HKCR,Directory\Background\Shell\CygWinHere,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
-HKCR,Directory\Background\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"""
+HKCR,Directory\Background\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CygWinHere,,,"%ContextText%"
 HKCR,Drive\Shell\CygWinHere,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
-HKCR,Drive\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"" "
+HKCR,Drive\Shell\CygWinHere\command,,0x00020000,"wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"" "
 
 [CygWinHere.DelReg]
 HKLM,%UDHERE%
 
 [Strings]
 DisplayName="Context Menu: CygWin Here"
-DisplayVersion="1.1"
+DisplayVersion="1.2"
 ContextText="Start &CygWin Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CygWinHere"

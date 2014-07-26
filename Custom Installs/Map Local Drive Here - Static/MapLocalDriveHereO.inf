@@ -55,16 +55,19 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\MapLocalDriveHereO,,,"%ContextText%"
 HKCR,Directory\Shell\MapLocalDriveHereO,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
-HKCR,Directory\Shell\MapLocalDriveHereO\command,,0x00020000,"cmd /c subst O: /D & subst O: ""%1"" "
+HKCR,Directory\Shell\MapLocalDriveHereO,NoWorkingDirectory,,""
+HKCR,Directory\Shell\MapLocalDriveHereO\command,,0x00020000,"cmd /c subst O: /D & subst O: ""%V"" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\MapLocalDriveHereO,,,"%ContextText%"
 HKCR,Directory\Background\Shell\MapLocalDriveHereO,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
-HKCR,Directory\Background\Shell\MapLocalDriveHereO\command,,0x00020000,"cmd /c subst O: /D & subst O: ""%%%CD%%%"" "
+HKCR,Directory\Background\Shell\MapLocalDriveHereO,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\MapLocalDriveHereO\command,,0x00020000,"cmd /c subst O: /D & subst O: ""%V"" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\MapLocalDriveHereO,,,"%RemoveText%"
 HKCR,Drive\Shell\MapLocalDriveHereO,Icon,0x00020000,"%SystemRoot%\System32\mapdrive.ico"
+HKCR,Drive\Shell\MapLocalDriveHereO,NoWorkingDirectory,,""
 HKCR,Drive\Shell\MapLocalDriveHereO\command,,0x00020000,"cmd /c subst O: /D"
 
 [MapLocalDriveHereO.DelReg]
@@ -75,7 +78,7 @@ HKCR,Drive\Shell\MapLocalDriveHereO
 
 [Strings]
 DisplayName="Context Menu: Map Local Drive Here: O"
-DisplayVersion="1.1"
+DisplayVersion="1.2"
 ContextText="Map &Local Drive Here: O"
 RemoveText="Remove Mapped &Local Drive: O"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\MapLocalDriveHereO"

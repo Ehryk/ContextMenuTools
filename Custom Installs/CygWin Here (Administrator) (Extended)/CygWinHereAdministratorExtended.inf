@@ -42,25 +42,28 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 HKCR,Directory\Shell\CygWinHereAdministratorExtended,,,"%ContextText%"
 HKCR,Directory\Shell\CygWinHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
 HKCR,Directory\Shell\CygWinHereAdministratorExtended,Extended,,""
-HKCR,Directory\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"""
+HKCR,Directory\Shell\CygWinHereAdministratorExtended,NoWorkingDirectory,,""
+HKCR,Directory\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,,,"%ContextText%"
 HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
 HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,Extended,,""
-HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"""
+HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended,NoWorkingDirectory,,""
+HKCR,Directory\Background\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\CygWinHereAdministratorExtended,,,"%ContextText%"
 HKCR,Drive\Shell\CygWinHereAdministratorExtended,Icon,0x00020000,"%SystemRoot%\System32\CygWin.ico"
 HKCR,Drive\Shell\CygWinHereAdministratorExtended,Extended,,""
-HKCR,Drive\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"""%SystemRoot%\System32\cmd.exe"" /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%1"" "
+HKCR,Drive\Shell\CygWinHereAdministratorExtended,NoWorkingDirectory,,""
+HKCR,Drive\Shell\CygWinHereAdministratorExtended\command,,0x00020000,"cmd /c Elevate.cmd wscript ""%SystemDrive%\CygWin\Cygwin.vbs"" ""%V"" "
 
 [CygWinHereAdministratorExtended.DelReg]
 HKLM,%UDHERE%
 
 [Strings]
 DisplayName="Context Menu: CygWin Here (Administrator) (Extended)"
-DisplayVersion="1.1"
+DisplayVersion="1.2"
 ContextText="Start &CygWin Here (Administrator)"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CygWinHereAdministratorExtended"

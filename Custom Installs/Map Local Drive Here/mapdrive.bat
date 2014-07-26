@@ -7,7 +7,7 @@ IF /I "%~2"=="/V" SET VERBOSE=T
 IF /I "%~3"=="/V" SET VERBOSE=T
 
 ECHO.
-ECHO MapDrive v1.1, Eric Menze 2013
+ECHO MapDrive v1.2, Eric Menze 2014
 ECHO ==============================
 IF DEFINED VERBOSE ECHO Parameter 1: %1
 IF DEFINED VERBOSE ECHO Parameter 2: %2

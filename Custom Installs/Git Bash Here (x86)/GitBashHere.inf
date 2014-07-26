@@ -41,17 +41,17 @@ HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallA
 ;Adds entry when right-clicking a Directory
 HKCR,Directory\Shell\Git_Shell,,,"%ContextText%"
 HKCR,Directory\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
-HKCR,Directory\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%1"""
+HKCR,Directory\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%V"" "
 
 ;Adds entry when right-clicking "empty space" in a directory
 HKCR,Directory\Background\Shell\Git_Shell,,,"%ContextText%"
 HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
-HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%V"""
+HKCR,Directory\Background\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%V"" "
 
 ;Adds entry when right-clicking a Drive
 HKCR,Drive\Shell\Git_Shell,,,"%ContextText%"
 HKCR,Drive\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32\Git.ico"
-HKCR,Drive\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%1"" "
+HKCR,Drive\Shell\Git_Shell\command,,0x00020000,"wscript ""%24%\Program Files\Git\Git Bash.vbs"" ""%V"" "
 
 [GitBashHere.DelReg]
 HKLM,%UDHERE%
@@ -61,6 +61,6 @@ HKCR,Drive\Shell\Git_Shell
 
 [Strings]
 DisplayName="Context Menu: Git Bash Here"
-DisplayVersion="1.1"
+DisplayVersion="1.2"
 ContextText="&Git Bash Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\GitBashHere"
