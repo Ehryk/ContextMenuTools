@@ -62,5 +62,5 @@ HKLM,%UDHERE%
 [Strings]
 DisplayName="Context Menu: CygWin Here (Extended)"
 DisplayVersion="1.2"
-ContextText="Start &CygWin Here"
+ContextText="Start C&ygWin Here"
 UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\CygWinHereExtended"

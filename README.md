@@ -110,11 +110,43 @@ This adds "Command Prompt Here (Administrator)" to the extended context menu onl
 
 ##### Git Bash Here (x64)
  - Shortcut Key: g
-This will add the "Git Bash Here" context menu entry with an icon to Directories, Drives, and Directory Backgrounds.  It will only work for the default install location for 64 bit machines (C:\Program Files(x86)\Git\Git Bash.vbs).
+This will add the "Git Bash Here" context menu entry with an icon to Directories, Drives, and Directory backgrounds.  It will only work for the default install location for 64 bit machines (C:\Program Files(x86)\Git\Git Bash.vbs).
 
 ##### Git Bash Here (x86)
  - Shortcut Key: g
 This will add the "Git Bash Here" context menu entry with an icon to Directories, Drives, and Directory Backgrounds.  It will only work for the default install location for 32 bit machines (C:\Program Files\Git\Git Bash.vbs).
+
+### Start Cygwin Here
+
+##### Cygwin Here
+ - Shortcut Key: y
+ This will add the "Start Cygwin Here" context menu entry with an icon to Directories, Drives, and Directory backgrounds. It will only work for the default install location (C:\Cygwin), however a quick edit of the .inf file before installation will let you customize the installation path.
+
+##### Cygwin Here (Extended)
+ - Shortcut Key: y
+Same as Cygwin Here, but only in the extended context menu (shift + right click).
+
+##### Cygwin Here (Administrator)
+ - Shortcut Key: y
+This will add the "Start Cygwin Here (Administrator)" context menu entry with an icon to Directories, Drives, and Directory backgrounds. It will only work for the default install location (C:\Cygwin), however a quick edit of the .inf file before installation will let you customize the installation path.
+
+##### Cygwin Here (Administrator) (Extended)
+ - Shortcut Key: y
+Same as Cygwin Here (Administrator), but only in the extended context menu (shift + right click).
+
+### Network and Local Drives
+
+##### Map Network Drive Here
+ - Shortcut Key: n
+ This will add a shorcut to map a network drive to the first available drive letter, starting at Z: and working backward.
+
+##### Map Local Drive Here
+ - Shortcut Key: l
+ This will add a shorcut to map a local folder as a drive to the first available drive letter, starting at Z: and working backward. This has proved extremely useful when working with extremely long paths from nested directories as the directory can be mapped to a drive letter which restarts the path length limit.
+
+##### Map Local Drive Here - Static
+ - Shortcut Key: l
+Same as Map Local Drive Here, but with a set drive letter (Available: K:, L:, M:, N:, O:, P:). A quick edit of the .inf file can change them to any other drive letter, and this automatically unmounts any local drives that are on that drive letter first for reuse.
 
 ### Open With...
 
