@@ -52,6 +52,28 @@ Superuser Installs add all of the following options, including the Administrativ
  - Start Powershell Here - Shortcut Key: p, Runs PowerShell.
  - Start Powershell Here (Administrator) - Shortcut Key: p, Runs PowerShell as an Administrator.
 
+### Command Prompts
+
+##### Command Prompt Here
+ - Shortcut Key: c
+ - By default Windows gives you "Open Command Window Here" on the extended context menu only (shift + right click) to Directories, Drives, and Directory Backgrounds.  This adds a "Command Prompt Here" item with an icon to the normal (and extended) menu entry.
+
+##### Command Prompt Here (Extended)
+ - Shortcut Key: c
+ - This replaces the Windows extended menu item with "Command Prompt Here" with an icon to Directories, Drives, and Directory Backgrounds.  It returns the default when it is uninstalled.
+
+##### Command Prompt Here (Administrator)
+ - Shortcut Key: c
+ - This adds "Command Prompt Here (Administrator)" to the context menu.  The foreground text is red to distinguish it from normal command prompts.
+
+##### Command Prompt Here (Administrator) (Extended)
+ - Shortcut Key: c
+ - This adds "Command Prompt Here (Administrator)" to the extended context menu only.  The foreground text is red to distinguish it from normal command prompts.
+
+*Note: as an added feature, administrative command prompts are opened with red text as a reminder of their additional access level.*
+
+![Administrator Command Prompt](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/AdministratorCommandPrompt.png)
+
 ### PowerShell
 
 ##### Start PowerShell Here
@@ -74,37 +96,13 @@ Superuser Installs add all of the following options, including the Administrativ
  - Adds "Start PowerShell Here (Administrator)" to the extended context menu only (Shift + Right Click). "Administrator: " is added to the window title.  Command Prompt:
  - Administrator\[Red\] (Location)>
 
-##### Keep PowerShell Blue.reg
-##### KeepPowerShellBlue.inf
+##### Keep PowerShell Blue.reg / KeepPowerShellBlue.inf
  - When PowerShell is launched directly from the .exe, it does not have the custom blue colors and other options.  These values are saved with the PowerShell.lnk that is usually called.  These registry entries keep PowerShell the way the link makes it, no matter what calls it.
 
 ![Keep PowerShell Blue](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/PowerShellDefault.png)
 
-##### Keep Command Window Scrollable.reg
-##### KeepCommandWindowScrollable.inf
+##### Keep Command Window Scrollable.reg / KeepCommandWindowScrollable.inf
  - When cmd.exe is launched directly from the .exe, it is not scrollable.  These values are saved with the cmd.lnk that is usually called.  These registry entries keep cmd.exe the way the link makes it, no matter what calls it.
-
-### Command Prompts
-
-##### Command Prompt Here
- - Shortcut Key: c
- - By default Windows gives you "Open Command Window Here" on the extended context menu only (shift + right click) to Directories, Drives, and Directory Backgrounds.  This adds a "Command Prompt Here" item with an icon to the normal (and extended) menu entry.
-
-##### Command Prompt Here (Extended)
- - Shortcut Key: c
- - This replaces the Windows extended menu item with "Command Prompt Here" with an icon to Directories, Drives, and Directory Backgrounds.  It returns the default when it is uninstalled.
-
-##### Command Prompt Here (Administrator)
- - Shortcut Key: c
- - This adds "Command Prompt Here (Administrator)" to the context menu.  The foreground text is red to distinguish it from normal command prompts.
-
-##### Command Prompt Here (Administrator) (Extended)
- - Shortcut Key: c
- - This adds "Command Prompt Here (Administrator)" to the extended context menu only.  The foreground text is red to distinguish it from normal command prompts.
-
-*Note: as an added feature, administrative command prompts are opened with red text as a reminder of their additional access level.*
-
-![Administrator Command Prompt](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/AdministratorCommandPrompt.png)
 
 ### Git Bash
 
