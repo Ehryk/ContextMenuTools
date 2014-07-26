@@ -12,7 +12,7 @@ These tools add functionality to your context menu.  They have easy uninstall en
 
 You can use the Setup.hta, Default Install.exe, Superuser Install.exe, but the best way is to open the Default Installs folder, select the best matching option, open that subfolder, right click the .inf in that folder and choose 'Install'.
 
-**NOTE: The installs must sometimes be run as Administrator; right click the application and select "Run as Administrator" from the context menu if they menu entries don't appear.**
+*NOTE: The installs must sometimes be run as Administrator; right click the application and select "Run as Administrator" from the context menu if they menu entries don't appear.*
 
 If you have any bugs to report or features to request, please do so either at GitHub (https://github.com/Ehryk/ContextMenuTools) or my email (Ehryk42@gmail.com).  I'd be interested in other commands that would be helpful in the context menu.
 
@@ -67,12 +67,12 @@ Adds "Start PowerShell Here" to the extended context menu only (Shift + Right Cl
 ##### Start PowerShell Here (Administrator)
  - Shortcut Key: p
 This will add the "Start PowerShell Here (Administrator)" context menu entry with a red icon to Directories, Drives, and Directory Backgrounds.  It is only available in the extended context menu.  "Administrator: " is added to the window title, and the command prompt becomes:
-Administrator[Red] (Location)>
+Administrator\[Red\] (Location)>
 
 ##### Start PowerShell Here (Administrator) (Extended)
  - Shortcut Key: p
 Adds "Start PowerShell Here (Administrator)" to the extended context menu only (Shift + Right Click). "Administrator: " is added to the window title.  Command Prompt:
-Administrator[Red] (Location)>
+Administrator\[Red\] (Location)>
 
 ##### Keep PowerShell Blue.reg
 ##### KeepPowerShellBlue.inf
@@ -102,7 +102,7 @@ This adds "Command Prompt Here (Administrator)" to the context menu.  The foregr
  - Shortcut Key: c
 This adds "Command Prompt Here (Administrator)" to the extended context menu only.  The foreground text is red to distinguish it from normal command prompts.
 
-**Note: as an added feature, administrative command prompts are opened with red text as a reminder of their additional access level.**
+*Note: as an added feature, administrative command prompts are opened with red text as a reminder of their additional access level.*
 
 ![Administrator Command Prompt](https://raw2.github.com/Ehryk/ContextMenuTools/master/Images/AdministratorCommandPrompt.png)
 
