@@ -154,7 +154,7 @@ HKCR,Directory\Shell\StartPowerShellHereAdministrator\command,,0x00020000,"cmd /
 HKCR,Directory\Background\Shell\CommandPromptHere,,,"%cmdContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHere,Icon,0x00020000,"%SystemRoot%\System32\cmd.ico"
 HKCR,Directory\Background\Shell\CommandPromptHere,NoWorkingDirectory,,""
-HKCR,Directory\Background\Shell\CommandPromptHere\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %V"" "
+HKCR,Directory\Background\Shell\CommandPromptHere\command,,0x00020000,"cmd /s /k ""VER && TITLE Command Prompt: %V && PUSHD ""%V"" "" "
 
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,,,"%cmdAdminContextText%"
 HKCR,Directory\Background\Shell\CommandPromptHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\cmdAdmin.ico"
@@ -168,7 +168,7 @@ HKCR,Directory\Background\Shell\Git_Shell,Icon,0x00020000,"%SystemRoot%\System32
 
 HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
 HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%V'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); function Prompt { Write-Host ('' + $CurrentUser.Name) -nonewline -foregroundcolor DarkGreen; Write-Host (' ' + $(get-location) +'>') -nonewline; return ' ' }; "" "
 
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\PowerShellAdmin.ico"
