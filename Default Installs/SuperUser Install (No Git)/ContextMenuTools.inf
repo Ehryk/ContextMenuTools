@@ -134,7 +134,7 @@ HKCR,Directory\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c 
 
 HKCR,Directory\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
 HKCR,Directory\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Directory\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); "" "
+HKCR,Directory\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); "" "
 
 HKCR,Directory\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
 HKCR,Directory\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\PowerShellAdmin.ico"
@@ -153,7 +153,7 @@ HKCR,Directory\Background\Shell\CommandPromptHereAdministrator\command,,0x000200
 
 HKCR,Directory\Background\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
 HKCR,Directory\Background\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); "" "
+HKCR,Directory\Background\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""$host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); "" "
 
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
 HKCR,Directory\Background\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\PowerShellAdmin.ico"
@@ -173,7 +173,7 @@ HKCR,Drive\Shell\CommandPromptHereAdministrator\command,,0x00020000,"cmd /c Elev
 
 HKCR,Drive\Shell\StartPowerShellHere,,,"%PowerShellContextText%"
 HKCR,Drive\Shell\StartPowerShellHere,Icon,0x00020000,"%SystemRoot%\System32\PowerShell.ico"
-HKCR,Drive\Shell\StartPowerShellHere\command,,0x00020000," ""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); "" "
+HKCR,Drive\Shell\StartPowerShellHere\command,,0x00020000,"""%SystemRoot%\System32\windowspowershell\v1.0\PowerShell.exe"" -NoExit -Command ""Set-Location -LiteralPath '%L'; $host.ui.rawui.windowtitle = $host.ui.rawui.windowtitle + ': ' + '%V'; $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent(); "" "
 
 HKCR,Drive\Shell\StartPowerShellHereAdministrator,,,"%PowerShellAdminContextText%"
 HKCR,Drive\Shell\StartPowerShellHereAdministrator,Icon,0x00020000,"%SystemRoot%\System32\PowerShellAdmin.ico"
